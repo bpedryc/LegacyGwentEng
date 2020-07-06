@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Server",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build server",
+            "program": "${workspaceFolder}/src/Cynthia.Card.Server/bin/Debug/netcoreapp3.0/Cynthia.Card.Server.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Cynthia.Card.Server",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+        },
+        {
+            "name": "Test",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build test",
+            "program": "${workspaceFolder}/test/ConsoleTest/bin/Debug/netcoreapp3.0/ConsoleTest.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/test/ConsoleTest",
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+        }
+    ]
+}
