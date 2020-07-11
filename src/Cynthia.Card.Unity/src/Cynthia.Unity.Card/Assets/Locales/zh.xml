@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<entries>
+	<entry id="login_login_button">LOGIN</entry>
+	<entry id="login_register_button">REGISTER</entry>
+	<entry id="login_login_placeholder">Login</entry>
+	<entry id="login_password_placeholder">Password</entry>
+	<entry id="login_remember_toggle">Remember credentials</entry>
+</entries>

@@ -11,6 +11,7 @@ using Cynthia.Card.Client;
 using System;
 using DG.Tweening;
 using System.Threading.Tasks;
+using Assets.Script.GlobalUI;
 using UnityEngine.Events;
 using static UnityEngine.UI.Scrollbar;
 
@@ -202,7 +203,7 @@ public class EditorInfo : MonoBehaviour
         EditorStatus = EditorStatus.ShowCards;
         _nowSwitchLeaderId = null;
         _nowEditorDeck = null;
-        DeckName.text = "Default";
+        DeckName.text = LanguageManager.Instance.GetText("default_deckname");
         _nowEditorGroup = Group.Leader;
         EditorBodyCore.SetActive(false);
         EditorBodyMian.SetActive(true);
@@ -293,24 +294,28 @@ public class EditorInfo : MonoBehaviour
 
     public async void ShowDeckRemoveClick(string Id)
     {
-        if (await _globalUIService.YNMessageBox("Delete", $"Are you sure you want to delete the deck: {_clientService.User.Decks.Single(x => x.Id == Id).Name} ?"))
+        var deckName = _clientService.User.Decks.Single(x => x.Id == Id).Name;
+        var lang = LanguageManager.Instance;
+        if (!await _globalUIService.YNMessageBox(lang.GetText("delete_title"),
+            string.Format(lang.GetText("delete_deck_confirm"), deckName)))
+            return;
+
+        if (!(await _clientService.RemoveDeck(Id)))
         {
-            if (!(await _clientService.RemoveDeck(Id)))
-            {
-                await _globalUIService.YNMessageBox("Error", $"Failed to delete the deck {_clientService.User.Decks.Single(x => x.Id == Id).Name}");
-            }
-            else
-            {
-                var i = _clientService.User.Decks.Select((item, index) => (item, index)).Single(x => x.item.Id == Id).index;
-                _clientService.User.Decks.RemoveAt(i);
-                SetDeckList(_clientService.User.Decks);
-            }
+            await _globalUIService.YNMessageBox(lang.GetText("error_title"),
+                string.Format(lang.GetText("error_deleting_deck"), deckName));
         }
+        else
+        {
+            var i = _clientService.User.Decks.Select((item, index) => (item, index)).Single(x => x.item.Id == Id).index;
+            _clientService.User.Decks.RemoveAt(i);
+            SetDeckList(_clientService.User.Decks);
+        }
+        
     }
 
     public void ShowDeckEditorClick(string Id)
     {
-        //Debug.Log("点击了【" + _clientService.User.Decks.Single(x => x.Id == Id).Name + "】卡组的编辑按钮");
         var deck = _clientService.User.Decks.Single(x => x.Id == Id);
         _nowEditorDeck = deck;
         _nowSwitchLeaderId = deck.Leader;
@@ -328,9 +333,10 @@ public class EditorInfo : MonoBehaviour
 
     public void AddDeckClick()
     {   //点击新建按钮后
+        var lang = LanguageManager.Instance;
         if (_clientService.User.Decks.Count >= 40)
         {
-            _globalUIService.YNMessageBox("Limit", "The deck limit is 40!");
+            _globalUIService.YNMessageBox(lang.GetText("limit_title"), lang.GetText("deck_limit"));
         }
         else
         {
@@ -351,7 +357,7 @@ public class EditorInfo : MonoBehaviour
                 .ToList());
             _nowSwitchLeaderId = null;
             _nowEditorDeck = null;
-            DeckName.text = "Default";
+            DeckName.text = lang.GetText("default_deckname");
         }
     }
 
@@ -401,7 +407,7 @@ public class EditorInfo : MonoBehaviour
 
     public async void SwitchReturn()
     {
-
+        var lang = LanguageManager.Instance;
         switch (EditorStatus)
         {
             case EditorStatus.SwitchLeader://选择领袖阶段,变回选择势力
@@ -412,7 +418,7 @@ public class EditorInfo : MonoBehaviour
                 EditorStatus = EditorStatus.SwitchFaction;
                 _nowSwitchLeaderId = null;
                 _nowEditorDeck = null;
-                DeckName.text = "Default";
+                DeckName.text = lang.GetText("default_deckname");
                 break;
             case EditorStatus.SwitchFaction://选择势力阶段,变为展示卡牌阶段
                 OpenEditor(false);
@@ -444,8 +450,8 @@ public class EditorInfo : MonoBehaviour
                 // }
                 // else
                 // {
-                _nowEditorDeck.Name = (DeckName.text == "" ? "Default" : DeckName.text);
-                if (_clientService.User.Decks.Any(x => x.Id == (_nowEditorDeck.Id == null ? "" : _nowEditorDeck.Id)))
+                _nowEditorDeck.Name = (DeckName.text == "" ? lang.GetText("default_deckname") : DeckName.text);
+                if (_clientService.User.Decks.Any(x => x.Id == (_nowEditorDeck.Id ?? "")))
                 {
                     // if (await _globalUIService.YNMessageBox("是否修改卡组?", $"是否修改卡组 {DeckName.text}"))
                     // {
@@ -457,7 +463,7 @@ public class EditorInfo : MonoBehaviour
                     }
                     else
                     {
-                        if (!(await _globalUIService.YNMessageBox("Error", "Unable to add a new deck. Do you want to return to the main menu?", "Yes", "No")))
+                        if (!(await _globalUIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_adding_deck"))))
                         {
                             break;
                         }
@@ -476,7 +482,7 @@ public class EditorInfo : MonoBehaviour
                     }
                     else
                     {
-                        if (!(await _globalUIService.YNMessageBox("Error", "Unable to add a new deck.Do you want to return to the main menu ? ", "Yes", "No")))
+                        if (!(await _globalUIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_adding_deck"))))
                         {
                             break;
                         }
@@ -517,7 +523,7 @@ public class EditorInfo : MonoBehaviour
     public void ResetEditorCore()
     {//初始化
         EditorSearch.text = "";
-        DeckName.text = (_nowEditorDeck.Name == null || _nowEditorDeck.Name == "") ? "Default" : _nowEditorDeck.Name;
+        DeckName.text = (_nowEditorDeck.Name == null || _nowEditorDeck.Name == "") ? LanguageManager.Instance.GetText("default_deckname") : _nowEditorDeck.Name;
         EditorHeadT.sprite = EditorSpriteHeadT[GetFactionIndex(_nowSwitchFaction)];
         EditorHeadB.sprite = EditorSpriteHeadB[GetFactionIndex(_nowSwitchFaction)];
         //

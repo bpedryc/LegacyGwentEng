@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using Alsein.Extensions.IO;
+using Assets.Script.GlobalUI;
 
 public class MessageBox : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class MessageBox : MonoBehaviour
         gameObject.SetActive(false);
         Buttons.SetActive(true);
     }
-    public Task<bool> Show(string title, string message, string yes = "确定", string no = "取消", bool isOnlyYes = false)
+    public Task<bool> Show(string title, string message, string yes = "yes_button", string no = "no_button", bool isOnlyYes = false)
     {
         Buttons.SetActive(true);
         if (isOnlyYes)
@@ -50,10 +51,9 @@ public class MessageBox : MonoBehaviour
         }
         TitleText.text = title;
         MessageText.text = message;
-        YesText.text = yes;
-        NoText.text = no;
+        YesText.text = LanguageManager.Instance.GetText(yes);
+        NoText.text = LanguageManager.Instance.GetText(no);
         gameObject.SetActive(true);
-        // LayoutRebuilder.ForceRebuildLayoutImmediate(Context);
         return receiver.ReceiveAsync<bool>();
     }
     public void YesClick()

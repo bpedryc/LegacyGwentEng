@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Alsein.Extensions.IO;
 using Alsein.Extensions.LifetimeAnnotations;
+using Assets.Script.GlobalUI;
 using Autofac;
 using Microsoft.AspNetCore.SignalR.Client;
 using UnityEngine;
@@ -39,14 +40,19 @@ namespace Cynthia.Card.Client
              });
             hubConnection.On("RepeatLogin", async () =>
             {
-                SceneManager.LoadScene("LoginSecen");
-                await DependencyResolver.Container.Resolve<GlobalUIService>().YNMessageBox("账号被其他人强制登陆", "账号被登陆,被挤下了线");
+                SceneManager.LoadScene("LoginScene");
+                var lang = LanguageManager.Instance;
+                await DependencyResolver.Container.Resolve<GlobalUIService>().YNMessageBox(lang.GetText("logged_out_title"), lang.GetText("logged_out"));
             });
             hubConnection.Closed += (async x =>
             {
-                SceneManager.LoadScene("LoginSecen");
+                SceneManager.LoadScene("LoginScene");
+                var lang = LanguageManager.Instance;
+                await _globalUIService.YNMessageBox(lang.GetText("disconnected_title"),
+                    lang.GetText("disconnected").Replace("\\n", "\n"), 
+                    "ok_button", isOnlyYes: true);
+
                 // LayoutRebuilder.ForceRebuildLayoutImmediate(Context);
-                await _globalUIService.YNMessageBox("断开连接", "请尝试重新登陆\n注意! 在目前版本中,如果处于对局或匹配时断线,需要重新启动客户端,否则下次游戏开始时会异常卡死。\nNote!\nIn the current version, if you are disconnected when matching or Playing, you need to restart the client, otherwise the next game will start with an abnormal.".Replace("\\n", "\n"), isOnlyYes: true);
                 // var messageBox = GameObject.Find("GlobalUI").transform.Find("MessageBoxBg").gameObject.GetComponent<MessageBox>();//.Show("断开连接", "请尝试重新登陆\n注意! 在目前版本中,如果处于对局或匹配时断线,需要重新启动客户端,否则下次游戏开始时会异常卡死。\nNote!\nIn the current version, if you are disconnected when matching or Playing, you need to restart the client, otherwise the next game will start with an abnormal.".Replace("\\n", "\n"), isOnlyYes: true);
                 // messageBox.Buttons.SetActive(true);
                 // messageBox.YesButton.SetActive(true);
@@ -81,11 +87,10 @@ namespace Cynthia.Card.Client
         }
         public async void ExitGameClick()
         {
-            if (await _globalUIService.YNMessageBox("QUIT", "Are you sure you want to quit?"))
-            // if (await DependencyResolver.Container.Resolve<GlobalUIService>().YNMessageBox("断开连接", "请尝试重新登陆\n注意! 在目前版本中,如果处于对局或匹配时断线,需要重新启动客户端,否则下次游戏开始时会异常卡死。\nNote!\nIn the current version, if you are disconnected when matching or Playing, you need to restart the client, otherwise the next game will start with an abnormal."))
+            var lang = LanguageManager.Instance;
+            if (await _globalUIService.YNMessageBox(lang.GetText("quit_title"), lang.GetText("quit_confirm")))
             {
                 Application.Quit();
-                return;
             }
         }
 

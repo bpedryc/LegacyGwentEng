@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assets.Script.GlobalUI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -157,7 +158,7 @@ public class GameCardShowControl : MonoBehaviour
     {
         if (MyCemetery == null || MyCemetery.Count == 0)
             return;
-        ShowCardMessage.text = "我方墓地";
+        ShowCardMessage.text = LanguageManager.Instance.GetText("my_graveyard_text");
         _nowShowType = MenuShowType.MyCemetery;
         SetCardInfo(MyCemetery);
         SelectCard(-1);
@@ -169,7 +170,7 @@ public class GameCardShowControl : MonoBehaviour
     {
         if (EnemyCemetery == null || EnemyCemetery.Count == 0)
             return;
-        ShowCardMessage.text = "敌方墓地";
+        ShowCardMessage.text = LanguageManager.Instance.GetText("opponents_graveyard_text");
         _nowShowType = MenuShowType.EnemyCemetery;
         SetCardInfo(EnemyCemetery);
         SelectCard(-1);
@@ -183,7 +184,7 @@ public class GameCardShowControl : MonoBehaviour
         Debug.Log(MyDeck?.Count());
         if (MyDeck == null || MyDeck.Count() == 0)
             return;
-        ShowCardMessage.text = "我方卡组(原始状态,顺序)";
+        ShowCardMessage.text = LanguageManager.Instance.GetText("my_deck_text");
         _nowShowType = MenuShowType.MyDeck;
         SetCardInfo(MyDeck);
         SelectCard(-1);
@@ -198,7 +199,8 @@ public class GameCardShowControl : MonoBehaviour
 
         NowMulliganCount = 0;
         NowMulliganTotal = total;
-        useCardTitle = $"选择1张卡重抽。[{NowMulliganCount}/{NowMulliganTotal}]";
+        useCardTitle = string.Format(LanguageManager.Instance.GetText("redraw_info"), 
+            NowMulliganCount, NowMulliganTotal);
         UseCardList = cards;
         OpenButton.SetActive(true);//打开显示按钮
                                    //IsMulliganEndShow,IsCloseShow,IsAffirmShow,IsHideShow
@@ -209,7 +211,7 @@ public class GameCardShowControl : MonoBehaviour
     public void OperationEnd()
     {
         _nowUseMenuType = UseCardShowType.None;
-        useCardTitle = "错误";
+        useCardTitle = LanguageManager.Instance.GetText("error_title");
         NowSelect = new List<int>();
         UseCardList = new List<CardStatus>();
         OpenButton.SetActive(false);//打开
@@ -237,7 +239,8 @@ public class GameCardShowControl : MonoBehaviour
         _nowUseMenuType = UseCardShowType.None;
         if (result != -1)
             NowMulliganCount++;
-        useCardTitle = $"选择1张卡重抽。[{NowMulliganCount}/{NowMulliganTotal}]";
+        useCardTitle = string.Format(LanguageManager.Instance.GetText("redraw_info"),
+            NowMulliganCount, NowMulliganTotal);
         if (IsUseMenuShow)
             ShowCardMessage.text = useCardTitle;
         //Debug.Log("发送调度消息");

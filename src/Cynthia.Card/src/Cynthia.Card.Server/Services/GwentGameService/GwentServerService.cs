@@ -173,18 +173,31 @@ namespace Cynthia.Card.Server
         public async Task<string> GetNotes(string connectionId)
         {
             await Task.CompletedTask;
-            return @"2020/3/26更新内容:
-修复3个bug:
-1.变形怪可以生成铜色特殊卡
-2.贝克尔的黑暗之镜只会对己方半场造成效果
-3.汉姆多尔不会摧毁伏击卡
-4.符文石将不会生成自身
-5.战灵将不会转变特殊卡
+            string patchNotes = @"
+07.07.2020 English Patch:
 
-(本服为原版服,diy/测试服可入群下载)
-欢迎入群945408322关注最新消息,闲聊或约牌~
-可访问http://cynthia.ovyno.com:5000 获取在线人数等信息
-";
+Welcome to the first english edition of the game!
+This server is set on my PC, don't expect too much.
+
+You can get more info and see active users on website:
+http://95.155.87.88:28002";
+
+
+            return patchNotes;
+            /*@"2020/3/26更新内容:
+            修复3个bug:
+            1.变形怪可以生成铜色特殊卡
+            2.贝克尔的黑暗之镜只会对己方半场造成效果
+            3.汉姆多尔不会摧毁伏击卡
+            4.符文石将不会生成自身
+            5.战灵将不会转变特殊卡
+
+            (本服为原版服,diy/测试服可入群下载)
+            欢迎入群945408322关注最新消息,闲聊或约牌~
+            可访问http://cynthia.ovyno.com:5000 获取在线人数等信息
+            ";*/
+
+
             //@"2019/11/1更新内容:
             // 完成最后一张单卡(目前全卡可用):
             // 松鼠党银卡-艾雷亚斯

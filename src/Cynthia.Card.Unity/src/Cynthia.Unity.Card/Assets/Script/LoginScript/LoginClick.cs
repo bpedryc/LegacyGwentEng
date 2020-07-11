@@ -7,6 +7,7 @@ using Autofac;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using System;
+using Assets.Script.GlobalUI;
 using Microsoft.AspNetCore.SignalR.Client;
 
 public class LoginClick : MonoBehaviour
@@ -60,9 +61,11 @@ public class LoginClick : MonoBehaviour
     }
     public async void Login()
     {
+        var lang = LanguageManager.Instance;
+
         if (IsLogining) return;
         IsLogining = true;
-        LogMessage.text = "Logging in.. Please wait";
+        LogMessage.text = lang.GetText("logging_in");
         try
         {
             var hub = DependencyResolver.Container.Resolve<HubConnection>();
@@ -71,11 +74,11 @@ public class LoginClick : MonoBehaviour
             await _client.Login(Username.text, Password.text);
             if (_client.User == null)
             {
-                LogMessage.text = "Wrong username or password";
+                LogMessage.text = lang.GetText("wrong_credentials");
                 IsLogining = false;
                 return;
             }
-            LogMessage.text = $"Successfully logged in. Welcome back {_client.User.PlayerName}";
+            LogMessage.text = string.Format(lang.GetText("login_welcome"), _client.User.PlayerName);
             SceneManager.LoadScene("Game");
             IsLogining = false;
         }

@@ -349,7 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43736867
 GameObject:
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5F97\u5206"
+  m_Text: Score
 --- !u!222 &63025962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1580,11 +1580,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: CloseButton
+      value: ExitButton
       objectReference: {fileID: 0}
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: ExitButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -1619,7 +1623,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u5173\u95ED"
+      value: EXIT
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -1664,7 +1673,7 @@ PrefabInstance:
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 904.6758
+      value: 958.1781
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -1737,6 +1746,12 @@ RectTransform:
 --- !u!1 &264761653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 264761651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &264761654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 264761651}
   m_PrefabAsset: {fileID: 0}
@@ -2212,6 +2227,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: GraveyardInfo
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2245,7 +2264,7 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u67E5\u770B\u5DF1\u65B9\u5893\u5730"
+      value: View your graveyard
       objectReference: {fileID: 0}
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2373,6 +2392,12 @@ RectTransform:
 --- !u!1 &329895023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 329895021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &329895024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 329895021}
   m_PrefabAsset: {fileID: 0}
@@ -3393,6 +3418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: CloseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3526,6 +3555,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 405791065}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &405791067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 405791065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420888776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,6 +3623,74 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.6, y: 2.16, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &425690949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425690950}
+  - component: {fileID: 425690951}
+  m_Layer: 0
+  m_Name: Translation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &425690950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425690949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.051205695, y: -0.27125084, z: 977.49457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &425690951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425690949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1d40e846f65c488ae8e669c747ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToTranslate:
+  - Id: show_button
+    TextObject: {fileID: 679582477}
+  - Id: graveyard_info
+    TextObject: {fileID: 329895024}
+  - Id: round_win_text
+    TextObject: {fileID: 1848380670}
+  - Id: round_lost_text
+    TextObject: {fileID: 1641194795}
+  - Id: starting_second_round
+    TextObject: {fileID: 811157681}
+  - Id: victory_text
+    TextObject: {fileID: 1686351662}
+  - Id: score_title
+    TextObject: {fileID: 63025958}
+  - Id: close_button
+    TextObject: {fileID: 405791067}
+  - Id: finish_redrawing_button
+    TextObject: {fileID: 650711252}
+  - Id: exit_button
+    TextObject: {fileID: 264761654}
+  - Id: confirm_button
+    TextObject: {fileID: 1594329659}
+  - Id: hide_button
+    TextObject: {fileID: 436587707}
 --- !u!1 &433192641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,6 +3740,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: HideButton
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3670,7 +3777,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u9690\u85CF\u5361\u724C"
+      value: HIDE
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -3715,7 +3827,7 @@ PrefabInstance:
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1270.675
+      value: 958.1781
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -3788,6 +3900,12 @@ RectTransform:
 --- !u!1 &436587706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 436587704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &436587707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 436587704}
   m_PrefabAsset: {fileID: 0}
@@ -4807,11 +4925,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: MulliganEndButton
+      value: FinishRedrawingButton
       objectReference: {fileID: 0}
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: FinishRedrawingButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -4846,7 +4968,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u624B\u724C\u8C03\u5EA6\u5B8C\u6BD5"
+      value: FINISH REDRAWING
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -4891,7 +5018,7 @@ PrefabInstance:
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 677
+      value: 958.1781
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -4949,6 +5076,12 @@ RectTransform:
 --- !u!1 &650711251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 650711249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &650711252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 650711249}
   m_PrefabAsset: {fileID: 0}
@@ -5329,6 +5462,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: ShowButton
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5362,7 +5499,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u663E\u793A\u5361\u724C"
+      value: SHOW
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -5465,6 +5607,12 @@ RectTransform:
 --- !u!1 &679582476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 679582474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &679582477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 679582474}
   m_PrefabAsset: {fileID: 0}
@@ -5774,7 +5922,7 @@ RectTransform:
   - {fileID: 1322948918}
   - {fileID: 657656525}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6226,7 +6374,7 @@ GameObject:
   - component: {fileID: 811157684}
   - component: {fileID: 811157683}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StartingRound2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6283,7 +6431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C 2 \u5C40\u5F00\u59CB!"
+  m_Text: Starting round 2
 --- !u!222 &811157684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7207,7 +7355,7 @@ GameObject:
   - component: {fileID: 912428080}
   - component: {fileID: 912428082}
   m_Layer: 5
-  m_Name: BigRoundInfo
+  m_Name: RoundLost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8644,7 +8792,7 @@ Transform:
   - {fileID: 1402383990}
   - {fileID: 1482179880}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1136800736
 GameObject:
@@ -9007,7 +9155,7 @@ GameObject:
   - component: {fileID: 1170565696}
   - component: {fileID: 1170565697}
   m_Layer: 5
-  m_Name: YouRoundShow
+  m_Name: RoundWon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12426,11 +12574,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: AffirmButton
+      value: ConfirmButton
       objectReference: {fileID: 0}
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: ConfirmButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -12465,7 +12621,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_Text
-      value: "\u786E\u8BA4"
+      value: CONFIRM
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -12510,7 +12671,7 @@ PrefabInstance:
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1072.675
+      value: 958.1781
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -12583,6 +12744,12 @@ RectTransform:
 --- !u!1 &1594329658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1594329656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1594329659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 1594329656}
   m_PrefabAsset: {fileID: 0}
@@ -12904,7 +13071,7 @@ GameObject:
   - component: {fileID: 1641194797}
   - component: {fileID: 1641194799}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RoundLostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12961,7 +13128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u672C\u5C40\u6218\u8D25!"
+  m_Text: YOU LOST THE ROUND
 --- !u!222 &1641194798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13193,7 +13360,7 @@ GameObject:
   - component: {fileID: 1686351665}
   - component: {fileID: 1686351664}
   m_Layer: 5
-  m_Name: Result
+  m_Name: VictoryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13265,7 +13432,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u80DC\u5229"
+  m_Text: 'VICTORY
+
+'
 --- !u!222 &1686351666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13844,7 +14013,7 @@ RectTransform:
   - {fileID: 2041051981}
   - {fileID: 329895022}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14200,7 +14369,7 @@ GameObject:
   - component: {fileID: 1848380673}
   - component: {fileID: 1848380672}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RoundWinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14272,7 +14441,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5DF1\u65B9\u56DE\u5408!"
+  m_Text: YOU WON THE ROUND!
 --- !u!222 &1848380674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15244,6 +15413,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1870030844501984, guid: 10646077d0e8c844eb189c8448926048, type: 3}
+      propertyPath: m_Name
+      value: ???
+      objectReference: {fileID: 0}
     - target: {fileID: 114095802868450390, guid: 10646077d0e8c844eb189c8448926048,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -15650,7 +15823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066497619
 GameObject:

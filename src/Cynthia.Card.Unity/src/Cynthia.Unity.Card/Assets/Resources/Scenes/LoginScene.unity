@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 91701935}
   - component: {fileID: 91701934}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Register_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 253167106}
   - component: {fileID: 253167105}
   m_Layer: 5
-  m_Name: LogTitle
+  m_Name: NewsTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,6 +355,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 915131295}
     m_Modifications:
+    - target: {fileID: 1398819453640516, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_UsernameText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_UsernamePlaceholder
+      objectReference: {fileID: 0}
     - target: {fileID: 1963427072903066, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
       propertyPath: m_Name
       value: RegisterName
@@ -467,6 +475,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 281014922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &281014924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 281014922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &351812204
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +574,7 @@ GameObject:
   - component: {fileID: 387512125}
   - component: {fileID: 387512124}
   m_Layer: 5
-  m_Name: Label
+  m_Name: LoginRememberToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,7 +782,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692651528
 GameObject:
@@ -782,7 +796,7 @@ GameObject:
   - component: {fileID: 692651531}
   - component: {fileID: 692651530}
   m_Layer: 5
-  m_Name: NowVersionText
+  m_Name: YourVersion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +911,7 @@ GameObject:
   - component: {fileID: 847789413}
   - component: {fileID: 847789412}
   m_Layer: 5
-  m_Name: Text
+  m_Name: NewsPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,6 +1121,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 915131295}
     m_Modifications:
+    - target: {fileID: 1398819453640516, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_PasswordText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_PasswordPlaceholder
+      objectReference: {fileID: 0}
     - target: {fileID: 1963427072903066, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
       propertyPath: m_Name
       value: RegisterPassword1
@@ -1244,6 +1266,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1017161218}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017161220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1017161218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023438126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1027873814
 PrefabInstance:
@@ -1334,6 +1362,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 915131295}
     m_Modifications:
+    - target: {fileID: 1398819453640516, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_LoginText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_LoginPlaceholder
+      objectReference: {fileID: 0}
     - target: {fileID: 1963427072903066, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
       propertyPath: m_Name
       value: RegisterUser
@@ -1341,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 114347892496430082, guid: 33216058cd3a26a4498c4d7001f48b48,
         type: 3}
       propertyPath: m_Text
-      value: Username
+      value: Login
       objectReference: {fileID: 0}
     - target: {fileID: 114347892496430082, guid: 33216058cd3a26a4498c4d7001f48b48,
         type: 3}
@@ -1445,6 +1481,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224959426860126362, guid: 33216058cd3a26a4498c4d7001f48b48,
     type: 3}
   m_PrefabInstance: {fileID: 1027873814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1027873816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027873814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1063197907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1919921396}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1075328342 stripped
 MonoBehaviour:
@@ -1623,7 +1671,7 @@ GameObject:
   - component: {fileID: 1228404406}
   - component: {fileID: 1228404405}
   m_Layer: 5
-  m_Name: Message
+  m_Name: LoginProjectInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1697,6 +1745,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4586417}
     m_Modifications:
+    - target: {fileID: 1398819453640516, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Login_LoginText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Login_LoginPlaceholder
+      objectReference: {fileID: 0}
     - target: {fileID: 114328364254096694, guid: 33216058cd3a26a4498c4d7001f48b48,
         type: 3}
       propertyPath: m_Text
@@ -1710,7 +1766,7 @@ PrefabInstance:
     - target: {fileID: 114347892496430082, guid: 33216058cd3a26a4498c4d7001f48b48,
         type: 3}
       propertyPath: m_Text
-      value: Username
+      value: Login
       objectReference: {fileID: 0}
     - target: {fileID: 114347892496430082, guid: 33216058cd3a26a4498c4d7001f48b48,
         type: 3}
@@ -1809,6 +1865,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+--- !u!1 &1246006875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246006874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295492730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1883,7 @@ GameObject:
   - component: {fileID: 1295492733}
   - component: {fileID: 1295492732}
   m_Layer: 5
-  m_Name: LatestVersionText
+  m_Name: LastVersion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1993,6 +2055,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 915131295}
     m_Modifications:
+    - target: {fileID: 1398819453640516, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_PasswordConfirmText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
+      propertyPath: m_Name
+      value: Register_PasswordConfirmPlaceholder
+      objectReference: {fileID: 0}
     - target: {fileID: 1963427072903066, guid: 33216058cd3a26a4498c4d7001f48b48, type: 3}
       propertyPath: m_Name
       value: RegisterPassword2
@@ -2130,6 +2200,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1337481184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1337481186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870316278964196, guid: 33216058cd3a26a4498c4d7001f48b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1337481184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1388221469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114328364254096694, guid: 33216058cd3a26a4498c4d7001f48b48,
@@ -2228,7 +2304,7 @@ GameObject:
   - component: {fileID: 1502791081}
   - component: {fileID: 1502791080}
   m_Layer: 5
-  m_Name: Title
+  m_Name: GameTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2276,9 +2352,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 60
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 70
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2304,6 +2380,10 @@ PrefabInstance:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
       value: LoginButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: Login_LoginButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2445,6 +2525,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
 --- !u!224 &1516011199 stripped
@@ -2547,13 +2637,97 @@ RectTransform:
   - {fileID: 723167860}
   - {fileID: 1228404404}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1682966721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1682966722}
+  - component: {fileID: 1682966723}
+  m_Layer: 0
+  m_Name: Translation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1682966722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682966721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3764954, y: 0.01883697, z: -131.46213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1682966723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682966721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1d40e846f65c488ae8e669c747ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToTranslate:
+  - Id: login_login_button
+    TextObject: {fileID: 1843322304}
+  - Id: login_register_button
+    TextObject: {fileID: 1063197907}
+  - Id: login_login_placeholder
+    TextObject: {fileID: 1246006875}
+  - Id: login_password_placeholder
+    TextObject: {fileID: 3310945145854735743}
+  - Id: login_remember_toggle
+    TextObject: {fileID: 387512122}
+  - Id: game_title
+    TextObject: {fileID: 1502791078}
+  - Id: news_title
+    TextObject: {fileID: 253167103}
+  - Id: login_title
+    TextObject: {fileID: 1937163337}
+  - Id: news_placeholder
+    TextObject: {fileID: 847789410}
+  - Id: login_project_info
+    TextObject: {fileID: 1228404403}
+  - Id: your_version
+    TextObject: {fileID: 692651528}
+  - Id: last_version
+    TextObject: {fileID: 1295492730}
+  - Id: exit_button
+    TextObject: {fileID: 1831317423}
+  - Id: register_title
+    TextObject: {fileID: 91701932}
+  - Id: register_back_button
+    TextObject: {fileID: 1997197016}
+  - Id: register_register_button
+    TextObject: {fileID: 2138674908}
+  - Id: register_login_placeholder
+    TextObject: {fileID: 1027873816}
+  - Id: register_username_placeholder
+    TextObject: {fileID: 281014924}
+  - Id: register_password_placeholder
+    TextObject: {fileID: 1017161220}
+  - Id: register_password_confirm_placeholder
+    TextObject: {fileID: 1337481186}
 --- !u!1001 &1831317421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2564,6 +2738,10 @@ PrefabInstance:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
       value: GwentButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: ExitButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2599,6 +2777,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: EXIT
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2705,6 +2893,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -37.588226
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
 --- !u!224 &1831317422 stripped
@@ -2712,6 +2910,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 1831317421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1831317423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1831317421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1843322304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1516011198}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1919921396
 PrefabInstance:
@@ -2723,6 +2933,10 @@ PrefabInstance:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
       value: RegisterButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: Login_RegisterButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2837,7 +3051,17 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 150
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2944,6 +3168,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -28.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
 --- !u!224 &1919921397 stripped
@@ -2964,7 +3208,7 @@ GameObject:
   - component: {fileID: 1937163340}
   - component: {fileID: 1937163339}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Login_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3041,7 +3285,7 @@ GameObject:
   - component: {fileID: 1961583414}
   - component: {fileID: 1961583415}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: RememberToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3130,7 +3374,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1738123559089934, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: LoginButton
+      value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: Register_BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -3240,7 +3488,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 150
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -3332,11 +3585,27 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
 --- !u!224 &1997197015 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1997197014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1997197016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 1997197014}
   m_PrefabAsset: {fileID: 0}
@@ -3430,6 +3699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RegisterButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: Register_RegisterButton
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3478,7 +3751,12 @@ PrefabInstance:
     - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 150
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934203956850270, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -3585,11 +3863,27 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285059556133164, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
 --- !u!224 &2138674907 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 2138674906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2138674908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 2138674906}
   m_PrefabAsset: {fileID: 0}
@@ -3632,6 +3926,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoginPassword
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311397089831750264, guid: b406008435f9d174e9f4e20bcc0b1140,
+        type: 3}
+      propertyPath: m_Name
+      value: Login_PasswordPlaceholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311886429795142360, guid: b406008435f9d174e9f4e20bcc0b1140,
+        type: 3}
+      propertyPath: m_Name
+      value: Login_PasswordText
       objectReference: {fileID: 0}
     - target: {fileID: 3381605705623291142, guid: b406008435f9d174e9f4e20bcc0b1140,
         type: 3}
@@ -3740,3 +4044,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b406008435f9d174e9f4e20bcc0b1140, type: 3}
+--- !u!1 &3310945145854735743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3311397089831750264, guid: b406008435f9d174e9f4e20bcc0b1140,
+    type: 3}
+  m_PrefabInstance: {fileID: 3310945145854735742}
+  m_PrefabAsset: {fileID: 0}

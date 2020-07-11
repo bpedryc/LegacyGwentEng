@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Script.GlobalUI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ public class ChoseValue : MonoBehaviour {
         set
         {
             _index = value;
-            ShowText.text = ChoseList[Index];
+            ShowText.text = LanguageManager.Instance.GetText(ChoseList[Index]);
             onValueChanged.Invoke(Index);
         }
     }
@@ -30,7 +31,7 @@ public class ChoseValue : MonoBehaviour {
 
     private void Start()
     {
-        ShowText.text = ChoseList[Index];
+        ShowText.text = LanguageManager.Instance.GetText(ChoseList[Index]);
     }
 
     public void LeftButtonClick()

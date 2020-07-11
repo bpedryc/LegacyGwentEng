@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using Alsein.Extensions.IO;
 using UnityEngine.Audio;
 using System;
+using Assets.Script.GlobalUI;
 using UnityEngine.UI;
 using Cynthia.Card.Client;
+using Cynthia.Card.Common;
 
 public class GaneEntrance : MonoBehaviour
 {
@@ -42,12 +44,12 @@ public class GaneEntrance : MonoBehaviour
         try
         {
             var version = new Version(await _gwentClientService.GetLatestVersion());
-            LatestVersionText.text = $"The latest version is: {version.ToString()}";
+            LatestVersionText.text = string.Format(LanguageManager.Instance.GetText("latest_version_info"), version);
             //LatestVersionText.text = ClientGlobalInfo.Version == version ? "The latest version" : "The latest version is：" + version.ToString();
         }
         catch
         {
-            LatestVersionText.text = "Couldn't get latest version info.";
+            LatestVersionText.text = LanguageManager.Instance.GetText("latest_version_error");
         }
         try
         {
@@ -55,7 +57,7 @@ public class GaneEntrance : MonoBehaviour
         }
         catch
         {
-            NotesText.text = "There are no news yet.";
+            NotesText.text = LanguageManager.Instance.GetText("news_error");
         }
         NotesText.alignment = TextAnchor.UpperLeft;
     }
@@ -76,7 +78,8 @@ public class GaneEntrance : MonoBehaviour
         SetCloseSound(PlayerPrefs.GetInt("isCloseSound", 1));
         SetMusic(PlayerPrefs.GetInt("musicVolum", 5));
         SetEffect(PlayerPrefs.GetInt("effectVolum", 5));
-        NowVersionText.text = "The current version is：" + ClientGlobalInfo.Version.ToString();
+        NowVersionText.text = string.Format(LanguageManager.Instance.GetText("current_version_info"),
+            ClientGlobalInfo.Version);
     }
 
     public Resolution IndexToResolution(int index)

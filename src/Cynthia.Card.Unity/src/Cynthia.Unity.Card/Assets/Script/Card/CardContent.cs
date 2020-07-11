@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cynthia.Card;
 using Alsein.Extensions;
+using Assets.Script.GlobalUI;
 
 public class CardContent : MonoBehaviour
 {
@@ -69,8 +70,8 @@ public class CardContent : MonoBehaviour
         }
         Head.sprite = HeadMap[cardStatus.Faction];
         Bottom.sprite = ContentMap[cardStatus.Faction];
-        CardInfoText.text = cardStatus.Info;//ToTrueString(cardStatus.Info);
-        CardNameText.text = cardStatus.Name;//ToTrueString(cardStatus.Name);
+        CardInfoText.text = LanguageManager.Instance.GetText($"card_{cardStatus.CardId}_info");//ToTrueString(cardStatus.Info);
+        CardNameText.text = LanguageManager.Instance.GetText($"card_{cardStatus.CardId}_name");//ToTrueString(cardStatus.Name);
         TagsText.text = ToTrueString(cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x]).Join(", "));
         if (cardStatus.IsImmue)
             TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "Immune" : ", Immune";

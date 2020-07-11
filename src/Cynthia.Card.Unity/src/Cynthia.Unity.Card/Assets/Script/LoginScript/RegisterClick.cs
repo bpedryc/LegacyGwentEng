@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Autofac;
 using System;
+using Assets.Script.GlobalUI;
 using Microsoft.AspNetCore.SignalR.Client;
 
 public class RegisterClick : MonoBehaviour
@@ -27,21 +28,23 @@ public class RegisterClick : MonoBehaviour
     }
     public async void Register()
     {
+        var lang = LanguageManager.Instance;
+
         if (IsRegistering) return;
         IsRegistering = true;
         if (Password.text.Length == 0 || Username.text.Length == 0 || Playername.text.Length == 0)
         {
-            RegisterMessage.text = "Input data cannot be empty. Try again.";
+            RegisterMessage.text = lang.GetText("register_empty_input");
             IsRegistering = false;
             return;
         }
         if (Password.text != Password2.text)
         {
-            RegisterMessage.text = "The passwords are not identical. Try again.";
+            RegisterMessage.text = lang.GetText("passwords_not_identical");
             IsRegistering = false;
             return;
         }
-        RegisterMessage.text = "Registering.. Please wait..";
+        RegisterMessage.text = lang.GetText("registering");
         try
         {
             var hub = DependencyResolver.Container.Resolve<HubConnection>();
@@ -50,16 +53,16 @@ public class RegisterClick : MonoBehaviour
             var result = await server.Register(Username.text, Password.text, Playername.text);
             if (!result)
             {
-                RegisterMessage.text = "Registration failed. A user with the same username or nickname already exists.";
+                RegisterMessage.text = lang.GetText("error_already_registered");
                 IsRegistering = false;
                 return;
             }
             IsRegistering = false;
-            RegisterMessage.text = "Registration successful. Press the \'back\' button to return to the login page.";
+            RegisterMessage.text = lang.GetText("registration_successful");
         }
         catch (Exception e)
         {
-            RegisterMessage.text = "There's been an error. The server may have been shut down.";
+            RegisterMessage.text = lang.GetText("error_registration");
             Debug.Log(e.Message);
         }
         finally

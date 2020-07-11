@@ -5,6 +5,7 @@ using Cynthia.Card;
 using UnityEngine;
 using Alsein.Extensions;
 using System.Linq;
+using Assets.Script.GlobalUI;
 using Autofac;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -63,7 +64,8 @@ public class MatchInfo : MonoBehaviour
     {
         if (_client.User.Decks.Count() <= 0)
         {
-            _UIService.YNMessageBox("当前没有卡组", "当前没有卡组,请添加卡组后再进行匹配");
+            var lang = LanguageManager.Instance;
+            _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_no_decks"));
         }
         else
         {
@@ -83,16 +85,16 @@ public class MatchInfo : MonoBehaviour
     {
         ReturnButton.SetActive(false);
         SwitchButton.SetActive(false);
-        MatchMessage.text = "寻找对手中";
-        MatchButtonText.text = "停止匹配";
+        MatchMessage.text = LanguageManager.Instance.GetText("looking_for_opponent");
+        MatchButtonText.text = LanguageManager.Instance.GetText("cancel_button");
         MatchPassword.readOnly = true;
     }
     public void ShowStopMatch()/////待编辑
     {
         ReturnButton.SetActive(true);
         SwitchButton.SetActive(true);
-        MatchMessage.text = "牌组就绪";
-        MatchButtonText.text = "开始战斗";
+        MatchMessage.text = LanguageManager.Instance.GetText("deck_ready");
+        MatchButtonText.text = LanguageManager.Instance.GetText("play_button");
         MatchPassword.readOnly = false;
     }
     public async void MatchButtonClick()/////点击匹配按钮的话
@@ -106,7 +108,8 @@ public class MatchInfo : MonoBehaviour
         }
         if (!_client.User.Decks.Single(x => x.Id == CurrentDeckId).IsBasicDeck())
         {
-            await _UIService.YNMessageBox("该卡组无法用于匹配", "该卡组无法用于该匹配,请重新编辑或切换卡组。");
+            var lang = LanguageManager.Instance;
+            await _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_incomplete_deck"));
             return;
         }
         //否则尝试开始匹配(目前不关注匹配结果)
@@ -148,7 +151,7 @@ public class MatchInfo : MonoBehaviour
         SwitchButton.SetActive(false);
         MatchButton.SetActive(false);
         CloseButton.SetActive(true);
-        MatchMessage.text = "选择牌组";
+        MatchMessage.text = LanguageManager.Instance.GetText("select_deck");
         DeckNameBackground.gameObject.SetActive(false);
         DecksScrollbar.GetComponent<Scrollbar>().value = 1;
         DeckSwitch.GetComponent<Animator>().Play("SwitchDeckOpen");
@@ -159,7 +162,7 @@ public class MatchInfo : MonoBehaviour
         SwitchButton.SetActive(true);
         MatchButton.SetActive(true);
         CloseButton.SetActive(false);
-        MatchMessage.text = "牌组就绪!";
+        MatchMessage.text = LanguageManager.Instance.GetText("deck_ready");
         CardsScrollbar.GetComponent<Scrollbar>().value = 1;
         DeckNameBackground.gameObject.SetActive(true);
     }

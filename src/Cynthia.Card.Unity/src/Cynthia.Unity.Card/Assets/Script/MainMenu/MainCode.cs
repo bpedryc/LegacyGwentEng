@@ -1,4 +1,5 @@
-﻿using Cynthia.Card.Client;
+﻿using Assets.Script.GlobalUI;
+using Cynthia.Card.Client;
 using UnityEngine;
 using Autofac;
 using UnityEngine.UI;
@@ -42,8 +43,8 @@ public class MainCode : MonoBehaviour
     }
     public async void ExitGameClick()
     {
-        // SceneManager.LoadScene("LoginSecen");
-        if (await _globalUIService.YNMessageBox("EXIT", "Are you sure you want to exit the game?"))
+        var lang = LanguageManager.Instance;
+        if (await _globalUIService.YNMessageBox(lang.GetText("exit_title"), lang.GetText("exit_confirm")))
         {
             //进行一些处理
             Application.Quit();
