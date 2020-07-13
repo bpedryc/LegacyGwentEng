@@ -9,6 +9,7 @@ using Alsein.Extensions.IO;
 using UnityEngine.Audio;
 using System;
 using Assets.Script.GlobalUI;
+using Cynthia.Card;
 using UnityEngine.UI;
 using Cynthia.Card.Client;
 using Cynthia.Card.Common;
@@ -28,6 +29,7 @@ public class GaneEntrance : MonoBehaviour
     private void Start()
     {
         _gwentClientService = DependencyResolver.Container.Resolve<GwentClientService>();
+        GwentMap.Translator = LanguageManager.Instance;
         Debug.Log(_gwentClientService);
         Debug.Log(_gwentClientService.HubConnection.State);
         ConfigureGame();

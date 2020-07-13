@@ -24,11 +24,11 @@ public class CardShowInfo : MonoBehaviour
                 return;
             }
             _currentCore = value;
-            //_currentCore.CardInfo = GwentMap.CardMap[_currentCore.CardId];
+            //_currentCore.CardInfo = GwentMap.GetCard(_currentCore.CardId);
             SetCard();
         }
     }
-    public GwentCard CardInfo { get => GwentMap.CardMap[_currentCore.CardId]; }
+    public GwentCard CardInfo { get => GwentMap.GetCard(_currentCore.CardId); }
     public bool IsGray
     {
         get => _isGray;

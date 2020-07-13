@@ -203,7 +203,7 @@ public class CardsPosition : MonoBehaviour
         newCard.GetComponent<CardShowInfo>().CurrentCore = card;
         if (card.IsCardBack == false)
         {
-            newCard.GetComponent<CardMoveInfo>().CardUseInfo = GwentMap.CardMap[card.CardId].CardUseInfo;
+            newCard.GetComponent<CardMoveInfo>().CardUseInfo = GwentMap.GetCard(card.CardId).CardUseInfo;
         }
         newCard.GetComponent<CardShowInfo>().SetCard();
         return newCard.GetComponent<CardMoveInfo>();
@@ -290,7 +290,7 @@ public class CardsPosition : MonoBehaviour
             newCard.GetComponent<CardShowInfo>().CurrentCore = x;
             if (x.IsCardBack == false)
             {
-                newCard.GetComponent<CardMoveInfo>().CardUseInfo = GwentMap.CardMap[x.CardId].CardUseInfo;
+                newCard.GetComponent<CardMoveInfo>().CardUseInfo = GwentMap.GetCard(x.CardId).CardUseInfo;
             }
             newCard.GetComponent<CardShowInfo>().SetCard();
             return newCard.GetComponent<CardMoveInfo>();

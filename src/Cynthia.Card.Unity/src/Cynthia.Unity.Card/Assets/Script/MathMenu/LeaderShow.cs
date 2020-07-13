@@ -32,7 +32,7 @@ public class LeaderShow : MonoBehaviour
     {
         CurrentId = id;
         if (_groupIconMap == null) Start();
-        var card = GwentMap.CardMap[id];
+        var card = GwentMap.GetCard(id);
         Name.text = card.Name;
         Streng.text = card.Strength.ToString();
         Title.sprite = _groupIconMap[card.Faction];

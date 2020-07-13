@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Alsein.Extensions;
 using Alsein.Extensions.Extensions;
+using Cynthia.Card.Common.Models;
 
 namespace Cynthia.Card
 {
     public static class GwentDeck
     {
+        private static ITranslator Translator { get; set; } = null;
         public static DeckModel CreateBasicDeck(int defaultDeckIndex)
         {
             var deck = default(List<string>);
+            var deckname = Translator != null ? Translator.GetText("default_deckname") : "帝国测试卡组";
+
             switch (defaultDeckIndex)
             {
                 case 1:
@@ -30,11 +34,12 @@ namespace Cynthia.Card
                     .Concat("34002".Plural(3))//侦查
                     .Concat("34003".Plural(3))//近卫军
                     .Concat("34004".Plural(3)).ToList();//12点
+
                     return new DeckModel()
                     {
                         Leader = "31001",
                         Deck = deck,
-                        Name = "帝国测试卡组",
+                        Name = deckname,
                         Id = Guid.NewGuid().ToString()
                     };
                 //约翰
@@ -54,13 +59,13 @@ namespace Cynthia.Card
                     .Concat("34002".Plural(3))//侦查
                     .Concat("34003".Plural(3))//近卫军
                     .Concat("34004".Plural(3)).ToList();//12点
-                    return new DeckModel() { Leader = "31001", Deck = deck, Name = "帝国测试卡组", Id = Guid.NewGuid().ToString() };
+                    return new DeckModel() { Leader = "31001", Deck = deck, Name = deckname, Id = Guid.NewGuid().ToString() };
             }
         }
         public static bool IsBasicDeck(this DeckModel deck)
         {
-            var decks = deck.Deck.Select(x => GwentMap.CardMap[x]);     //将卡组编号集合,转换成对应的卡
-            var deckFaction = GwentMap.CardMap[deck.Leader].Faction;    //得到卡组领袖所在的势力
+            var decks = deck.Deck.Select(x => GwentMap.GetCard(x));     //将卡组编号集合,转换成对应的卡
+            var deckFaction = GwentMap.GetCard(deck.Leader).Faction;    //得到卡组领袖所在的势力
 
             //判断条件1. 所有卡牌是否都为本势力卡, 或中立卡
             if (decks.Any(x => x.Faction != Faction.Neutral && x.Faction != deckFaction))

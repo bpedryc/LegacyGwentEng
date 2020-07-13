@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml;
 using Cynthia.Card;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -15,7 +16,7 @@ namespace Assets.Script.GlobalUI
         Polish
     }
 
-    class LanguageManager
+    class LanguageManager : ITranslator
     {
         private static LanguageManager _instance;
         public static LanguageManager Instance => _instance ?? (_instance = new LanguageManager());
@@ -91,7 +92,7 @@ namespace Assets.Script.GlobalUI
             return Texts.ContainsKey(id) ? Texts[id] : id;
         }
 
-        public void MakeXML()
+        /*public void MakeXML()
         {
             var doc = new XmlDocument();
             var root = doc.CreateElement("entries");
@@ -126,6 +127,6 @@ namespace Assets.Script.GlobalUI
             }
 
             doc.Save("CardLocale.xml");
-        }
+        }*/
     }
 }

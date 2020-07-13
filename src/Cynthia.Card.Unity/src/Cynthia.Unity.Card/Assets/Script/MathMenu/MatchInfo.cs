@@ -186,7 +186,7 @@ public class MatchInfo : MonoBehaviour
         DecksContext.DetachChildren();
         decks.ForAll(x =>
         {
-            var deck = Instantiate(DeckPrefabs[GetFactionIndex(GwentMap.CardMap[x.Leader].Faction)]);
+            var deck = Instantiate(DeckPrefabs[GetFactionIndex(GwentMap.GetCard(x.Leader).Faction)]);
             deck.GetComponent<DeckShowInfo>().SetDeckInfo(x.Name, x.IsBasicDeck());
             deck.GetComponent<SwitchMatchDeck>().SetId(DecksContext.childCount);
             deck.transform.SetParent(DecksContext, false);
@@ -216,13 +216,13 @@ public class MatchInfo : MonoBehaviour
         DeckNameBackground.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25 * DeckName.text.Length + 150, 71);
         DeckName.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25 * DeckName.text.Length, 40);
         DeckName.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-25 * DeckName.text.Length / 2 - 50, 0);
-        DeckIcon.overrideSprite = FactionIcon[GetFactionIndex(GwentMap.CardMap[deck.Leader].Faction)];
+        DeckIcon.overrideSprite = FactionIcon[GetFactionIndex(GwentMap.GetCard(deck.Leader).Faction)];
         //DeckIcon.sprite = Resources.Load<Sprite>("Sprites/Control/coin_northern");
         //////////////////////////////////////////////////
         var leader = Instantiate(LaderPrefab);
         leader.GetComponent<LeaderShow>().SetLeader(deck.Leader);
         leader.transform.SetParent(CardsContext, false);
-        var cards = deck.Deck.Select(x => GwentMap.CardMap[x]);
+        var cards = deck.Deck.Select(x => GwentMap.GetCard(x));
         cards.OrderByDescending(x => x.Group).ThenByDescending(x => x.Strength).GroupBy(x => x.Name).ForAll(x =>
             {
                 var card = Instantiate(CardPrefab);
@@ -235,8 +235,8 @@ public class MatchInfo : MonoBehaviour
         AllCount.text = $"{deck.Deck.Count()}";
         AllCount.color = deck.IsBasicDeck() ? ClientGlobalInfo.NormalColor : ClientGlobalInfo.ErrorColor;
         AllCountText.color = deck.IsBasicDeck() ? ClientGlobalInfo.NormalColor : ClientGlobalInfo.ErrorColor;
-        HeadT.sprite = HeadTSprite[GetFactionIndex(GwentMap.CardMap[deck.Leader].Faction)];
-        HeadB.sprite = HeadBSprite[GetFactionIndex(GwentMap.CardMap[deck.Leader].Faction)];
+        HeadT.sprite = HeadTSprite[GetFactionIndex(GwentMap.GetCard(deck.Leader).Faction)];
+        HeadB.sprite = HeadBSprite[GetFactionIndex(GwentMap.GetCard(deck.Leader).Faction)];
         //////////////////////////////////////////////////
         var height = ((41.5f + 3f) * CardsContext.childCount) + 8f + 38f;
         CardsContext.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, height);
