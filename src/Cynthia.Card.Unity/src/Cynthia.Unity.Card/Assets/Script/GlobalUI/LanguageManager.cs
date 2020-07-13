@@ -21,7 +21,7 @@ namespace Assets.Script.GlobalUI
         public static LanguageManager Instance => _instance ?? (_instance = new LanguageManager());
         private Dictionary<string, string> Texts = new Dictionary<string, string>();
 
-        private Language _setLanguage = Language.Polish;
+        private Language _setLanguage = Language.Chinese;
         public Language SetLanguage
         {
             get => _setLanguage;

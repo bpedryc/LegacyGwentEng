@@ -70,13 +70,22 @@ public class CardContent : MonoBehaviour
         }
         Head.sprite = HeadMap[cardStatus.Faction];
         Bottom.sprite = ContentMap[cardStatus.Faction];
-        CardInfoText.text = LanguageManager.Instance.GetText($"card_{cardStatus.CardId}_info");//ToTrueString(cardStatus.Info);
-        CardNameText.text = LanguageManager.Instance.GetText($"card_{cardStatus.CardId}_name");//ToTrueString(cardStatus.Name);
-        TagsText.text = ToTrueString(cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x]).Join(", "));
+
+        var lang = LanguageManager.Instance;
+        CardInfoText.text = lang.GetText($"card_{cardStatus.CardId}_info");//ToTrueString(cardStatus.Info);
+        CardNameText.text = lang.GetText($"card_{cardStatus.CardId}_name");//ToTrueString(cardStatus.Name);
+        TagsText.text = cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x])
+            .ForAll(t => t = lang.GetText($"card_{t}_tag")).Join(", ");
+        //TagsText.text = ToTrueString(cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x]).Join(", "));
+
         if (cardStatus.IsImmue)
             TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "Immune" : ", Immune";
-        if (cardStatus.IsDoomed && !TagsText.text.Contains("佚亡"))
-            TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "佚亡" : ", 佚亡";
+
+        if (cardStatus.IsDoomed && !TagsText.text.Contains("Doomed"))
+            TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "Doomed" : ", Doomed";
+
+        /*if (cardStatus.IsDoomed && !TagsText.text.Contains("佚亡"))
+            TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "佚亡" : ", 佚亡";*/
         Content.sizeDelta = new Vector2(Content.sizeDelta.x, CardInfoText.preferredHeight + 115);
         // Debug.Log(CardInfoText.preferredHeight);
     }
