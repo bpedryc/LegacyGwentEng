@@ -50,7 +50,7 @@ namespace Cynthia.Card
                 var cardsId = Game.PlayerBaseDeck[AnotherPlayer].Deck
                    .Select(x => x.CardId)
                    .Distinct()
-                   .Where(x => !GwentMap.CardMap[x].HasAnyCategorie(Categorie.Agent) && GwentMap.CardMap[x].Is(Group.Silver, CardType.Unit))
+                   .Where(x => !GwentMap.GetCard(x).HasAnyCategorie(Categorie.Agent) && GwentMap.GetCard(x).Is(Group.Silver, CardType.Unit))
                    .Mess(Game.RNG)
                    .Take(3).ToArray();
                 return await Game.CreateAndMoveStay(PlayerIndex, cardsId);

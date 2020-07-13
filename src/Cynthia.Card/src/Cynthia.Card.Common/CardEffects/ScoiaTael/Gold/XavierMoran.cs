@@ -17,7 +17,7 @@ namespace Cynthia.Card
             if (cards.Count() <= 0) return 0;
 
             var lastDwarfCardId = cards.Last().CardId.Status.CardId;
-            var boostNum = GwentMap.CardMap[lastDwarfCardId].Strength;
+            var boostNum = GwentMap.GetCard(lastDwarfCardId).Strength;
             await Card.Effect.Boost(boostNum, Card);
             return 0;
 

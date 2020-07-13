@@ -280,7 +280,7 @@ public class EditorInfo : MonoBehaviour
         decks.ForAll(x =>
         {
             if (_deckPrefabMap == null) Start();
-            var deck = Instantiate(_deckPrefabMap[GwentMap.CardMap[x.Leader].Faction]);
+            var deck = Instantiate(_deckPrefabMap[GwentMap.GetCard(x.Leader).Faction]);
             deck.GetComponent<DeckShowInfo>().SetDeckInfo(x.Name, x.IsBasicDeck());
             deck.GetComponent<EditorShowDeck>().Id = x.Id;
             deck.transform.SetParent(ShowDecksContext, false);
@@ -319,7 +319,7 @@ public class EditorInfo : MonoBehaviour
         var deck = _clientService.User.Decks.Single(x => x.Id == Id);
         _nowEditorDeck = deck;
         _nowSwitchLeaderId = deck.Leader;
-        _nowSwitchFaction = GwentMap.CardMap[deck.Leader].Faction;
+        _nowSwitchFaction = GwentMap.GetCard(deck.Leader).Faction;
         //
         ResetEditorCore();
         ShowCardsTitle.anchoredPosition = new Vector2(0, 150f);
@@ -616,7 +616,7 @@ public class EditorInfo : MonoBehaviour
         leader.SetLeader(_nowSwitchLeaderId);
         leader.GetComponent<EditorListLeader>().Id = _nowSwitchLeaderId;
         leader.transform.SetParent(EditorCListContext, false);
-        deck.Deck.Select(x => GwentMap.CardMap[x])
+        deck.Deck.Select(x => GwentMap.GetCard(x))
             .OrderByDescending(x => x.Group)
             .ThenByDescending(x => x.Strength)
             .GroupBy(x => x.CardId)
@@ -630,9 +630,9 @@ public class EditorInfo : MonoBehaviour
         AllCount.text = _nowEditorDeck.Deck.Count().ToString();
         AllCount.color = deck.IsBasicDeck() ? ClientGlobalInfo.NormalColor : ClientGlobalInfo.ErrorColor;
         AllCountText.color = deck.IsBasicDeck() ? ClientGlobalInfo.NormalColor : ClientGlobalInfo.ErrorColor;
-        CopperCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.CardMap[x].Group == Group.Copper).Count()}";
-        GoldCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.CardMap[x].Group == Group.Gold).Count()}/4";
-        SilverCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.CardMap[x].Group == Group.Silver).Count()}/6";
+        CopperCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.GetCard(x).Group == Group.Copper).Count()}";
+        GoldCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.GetCard(x).Group == Group.Gold).Count()}/4";
+        SilverCount.text = $"{_nowEditorDeck.Deck.Where(x => GwentMap.GetCard(x).Group == Group.Silver).Count()}/6";
         //*****************
         //等待补充？？？
         //*****************

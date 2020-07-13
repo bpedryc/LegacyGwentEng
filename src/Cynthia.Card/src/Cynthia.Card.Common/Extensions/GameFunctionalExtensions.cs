@@ -112,9 +112,9 @@ namespace Cynthia.Card
             var cardList = cards.Select(x => new CardStatus(card.Status.CardId) { Name = x.title, Info = x.message }).ToList();
             return card.Effect.Game.GetSelectMenuCards(card.PlayerIndex, cardList, selectCount: switchCount, title: "选择一个选项");
         }
-        public static GwentCard CardInfo(this GameCard card) => GwentMap.CardMap[card.Status.CardId];
-        public static GwentCard CardInfo(this CardStatus card) => GwentMap.CardMap[card.CardId];
-        public static GwentCard CardInfo(this string cardId) => GwentMap.CardMap[cardId];
+        public static GwentCard CardInfo(this GameCard card) => GwentMap.GetCard(card.Status.CardId);
+        public static GwentCard CardInfo(this CardStatus card) => GwentMap.GetCard(card.CardId);
+        public static GwentCard CardInfo(this string cardId) => GwentMap.GetCard(cardId);
         public static CardLocation GetLocation(this GameCard card, int playerIndex)
         {
             return card.Effect.Game.GetCardLocation(playerIndex, card);

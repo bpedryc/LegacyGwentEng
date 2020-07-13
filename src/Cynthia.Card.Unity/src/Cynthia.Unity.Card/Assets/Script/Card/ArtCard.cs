@@ -16,7 +16,7 @@ public class ArtCard : MonoBehaviour
             SetCard();
         }
     }
-    public GwentCard CardInfo { get => GwentMap.CardMap[_currentCore.CardId]; }
+    public GwentCard CardInfo { get => GwentMap.GetCard(_currentCore.CardId); }
     public CardContent Content;
     private CardStatus _currentCore;
     //---------------------------

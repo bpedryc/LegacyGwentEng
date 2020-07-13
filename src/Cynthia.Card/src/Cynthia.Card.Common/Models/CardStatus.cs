@@ -1,3 +1,5 @@
+using Cynthia.Card.Common.Models;
+
 namespace Cynthia.Card
 {
     public class CardStatus
@@ -5,7 +7,7 @@ namespace Cynthia.Card
         public CardStatus(string statusId)
         {
             CardId = statusId;
-            CardInfo = GwentMap.CardMap[statusId];
+            CardInfo = GwentMap.GetCard(statusId);
         }
 
         public CardStatus(string statusId, Faction deckFaction, RowPosition position) : this(statusId)
