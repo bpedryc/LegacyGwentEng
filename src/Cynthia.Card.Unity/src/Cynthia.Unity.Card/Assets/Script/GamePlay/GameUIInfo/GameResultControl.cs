@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Script.GlobalUI;
+﻿using Assets.Script.LanguageScript;
+using Cynthia.Card;
 using UnityEngine;
 using UnityEngine.UI;
-using Cynthia.Card.Client;
-using Cynthia.Card;
 
 public class GameResultControl : MonoBehaviour
 {

@@ -3,11 +3,10 @@ using Alsein.Extensions.IO;
 using Autofac;
 using Cynthia.Card;
 using Cynthia.Card.Client;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Assets.Script.GlobalUI;
+using Assets.Script.LanguageScript;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -199,7 +198,7 @@ public class GameCardShowControl : MonoBehaviour
 
         NowMulliganCount = 0;
         NowMulliganTotal = total;
-        useCardTitle = string.Format(LanguageManager.Instance.GetText("redraw_info"), 
+        useCardTitle = string.Format(LanguageManager.Instance.GetText("redraw_info"),
             NowMulliganCount, NowMulliganTotal);
         UseCardList = cards;
         OpenButton.SetActive(true);//打开显示按钮

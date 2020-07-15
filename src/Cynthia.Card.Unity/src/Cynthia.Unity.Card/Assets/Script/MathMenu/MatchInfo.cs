@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Cynthia.Card.Client;
-using Cynthia.Card;
-using UnityEngine;
-using Alsein.Extensions;
-using System.Linq;
-using Assets.Script.GlobalUI;
+﻿using Alsein.Extensions;
+using Assets.Script.LanguageScript;
 using Autofac;
-using UnityEngine.UI;
+using Cynthia.Card;
+using Cynthia.Card.Client;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MatchInfo : MonoBehaviour
 {

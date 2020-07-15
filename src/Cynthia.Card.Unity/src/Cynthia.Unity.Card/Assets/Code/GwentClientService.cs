@@ -1,14 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Alsein.Extensions.IO;
+﻿using Alsein.Extensions.IO;
 using Alsein.Extensions.LifetimeAnnotations;
-using Assets.Script.GlobalUI;
 using Autofac;
 using Microsoft.AspNetCore.SignalR.Client;
+using System.Linq;
+using System.Threading.Tasks;
+using Assets.Script.LanguageScript;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Cynthia.Card.Client
 {
@@ -49,7 +47,7 @@ namespace Cynthia.Card.Client
                 SceneManager.LoadScene("LoginScene");
                 var lang = LanguageManager.Instance;
                 await _globalUIService.YNMessageBox(lang.GetText("disconnected_title"),
-                    lang.GetText("disconnected").Replace("\\n", "\n"), 
+                    lang.GetText("disconnected").Replace("\\n", "\n"),
                     "ok_button", isOnlyYes: true);
 
                 // LayoutRebuilder.ForceRebuildLayoutImmediate(Context);

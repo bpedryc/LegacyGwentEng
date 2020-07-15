@@ -1,12 +1,10 @@
-﻿using Cynthia.Card.Client;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Autofac;
+using Cynthia.Card.Client;
+using Microsoft.AspNetCore.SignalR.Client;
+using System;
+using Assets.Script.LanguageScript;
 using UnityEngine;
 using UnityEngine.UI;
-using Autofac;
-using System;
-using Assets.Script.GlobalUI;
-using Microsoft.AspNetCore.SignalR.Client;
 
 public class RegisterClick : MonoBehaviour
 {

@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Autofac;
 using Cynthia.Card.Client;
-using Autofac;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-using System;
-using Assets.Script.GlobalUI;
 using Microsoft.AspNetCore.SignalR.Client;
+using System;
+using Assets.Script.LanguageScript;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoginClick : MonoBehaviour
 {

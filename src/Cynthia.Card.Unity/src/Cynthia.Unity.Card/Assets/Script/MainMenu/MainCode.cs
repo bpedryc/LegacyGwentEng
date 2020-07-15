@@ -1,9 +1,8 @@
-﻿using Assets.Script.GlobalUI;
+﻿using Assets.Script.LanguageScript;
+using Autofac;
 using Cynthia.Card.Client;
 using UnityEngine;
-using Autofac;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MainCode : MonoBehaviour
 {

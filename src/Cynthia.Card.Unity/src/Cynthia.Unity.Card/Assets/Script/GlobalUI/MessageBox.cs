@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Alsein.Extensions.IO;
+using System.Threading.Tasks;
+using Assets.Script.LanguageScript;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;
-using Alsein.Extensions.IO;
-using Assets.Script.GlobalUI;
 
 public class MessageBox : MonoBehaviour
 {

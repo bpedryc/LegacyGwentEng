@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Script.GlobalUI
+namespace Assets.Script.LanguageScript
 {
     public class Translator : MonoBehaviour
     {
         public List<Translatable> ObjectsToTranslate;
-        void Start()
+        private void Start()
         {
             TranslateAll();
         }
-
-        private void TranslateAll()
+        public void TranslateAll()
         {
             foreach (var entry in ObjectsToTranslate)
             {

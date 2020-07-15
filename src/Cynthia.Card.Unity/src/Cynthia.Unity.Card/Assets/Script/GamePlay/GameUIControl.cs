@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Script.LanguageScript;
+using Cynthia.Card;
 using UnityEngine;
 using UnityEngine.UI;
-using Cynthia.Card.Client;
-using Cynthia.Card;
-using System.Linq;
-using System;
-using Assets.Script.GlobalUI;
 
 public class GameUIControl : MonoBehaviour
 {

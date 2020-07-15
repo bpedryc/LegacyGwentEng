@@ -1,18 +1,11 @@
-﻿using System.Net.Mime;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Autofac;
-using Microsoft.AspNetCore.SignalR.Client;
-using System.Threading.Tasks;
-using Alsein.Extensions.IO;
-using UnityEngine.Audio;
-using System;
-using Assets.Script.GlobalUI;
+﻿using Autofac;
 using Cynthia.Card;
-using UnityEngine.UI;
 using Cynthia.Card.Client;
-using Cynthia.Card.Common;
+using System;
+using Assets.Script.LanguageScript;
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GaneEntrance : MonoBehaviour
 {
@@ -24,6 +17,7 @@ public class GaneEntrance : MonoBehaviour
     public Text LatestVersionText;
     public Text NotesText;
 
+    public Translator Translator;
     private GwentClientService _gwentClientService;
 
     private void Start()
@@ -47,11 +41,13 @@ public class GaneEntrance : MonoBehaviour
         {
             var version = new Version(await _gwentClientService.GetLatestVersion());
             LatestVersionText.text = string.Format(LanguageManager.Instance.GetText("latest_version_info"), version);
-            //LatestVersionText.text = ClientGlobalInfo.Version == version ? "The latest version" : "The latest version is：" + version.ToString();
         }
         catch
         {
-            LatestVersionText.text = LanguageManager.Instance.GetText("latest_version_error");
+            if (LatestVersionText != null)
+            {
+                LatestVersionText.text = LanguageManager.Instance.GetText("latest_version_error");
+            }
         }
         try
         {
@@ -59,9 +55,12 @@ public class GaneEntrance : MonoBehaviour
         }
         catch
         {
-            NotesText.text = LanguageManager.Instance.GetText("news_error");
+            if (NotesText != null)
+            {
+                NotesText.text = LanguageManager.Instance.GetText("news_error");
+                NotesText.alignment = TextAnchor.UpperLeft;
+            }
         }
-        NotesText.alignment = TextAnchor.UpperLeft;
     }
 
     public void ConfigureGame()
@@ -82,6 +81,25 @@ public class GaneEntrance : MonoBehaviour
         SetEffect(PlayerPrefs.GetInt("effectVolum", 5));
         NowVersionText.text = string.Format(LanguageManager.Instance.GetText("current_version_info"),
             ClientGlobalInfo.Version);
+    }
+
+    private void SetLanguage(int languageIndex)
+    {
+        var lang = LanguageManager.Instance;
+        lang.GameLanguage = languageIndex;
+        PlayerPrefs.SetInt("language", lang.GameLanguage);
+    }
+
+    public void NextLanguage()
+    {
+        var lang = LanguageManager.Instance;
+        SetLanguage(lang.GameLanguage + 1);
+        Translator.TranslateAll();
+
+        NowVersionText.text = string.Format(LanguageManager.Instance.GetText("current_version_info"),
+            ClientGlobalInfo.Version);
+        LoadServerMessage();
+
     }
 
     public Resolution IndexToResolution(int index)

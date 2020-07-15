@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Script.GlobalUI
+namespace Assets.Script.LanguageScript
 {
     [Serializable]
     public class Translatable

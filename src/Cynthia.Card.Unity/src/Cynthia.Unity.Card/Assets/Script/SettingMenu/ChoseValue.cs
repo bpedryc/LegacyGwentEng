@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Script.GlobalUI;
+﻿using Assets.Script.LanguageScript;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ChoseValue : MonoBehaviour {
+public class ChoseValue : MonoBehaviour
+{
     public string[] ChoseList;
-    private int _index=0;
+    private int _index = 0;
     public int Index
     {
         get
@@ -36,7 +35,7 @@ public class ChoseValue : MonoBehaviour {
 
     public void LeftButtonClick()
     {
-        if (Index-1 < 0)
+        if (Index - 1 < 0)
         {
             Index = ChoseList.Length - 1;
             return;
@@ -45,7 +44,7 @@ public class ChoseValue : MonoBehaviour {
     }
     public void RightButtonClick()
     {
-        if (Index+1 >= ChoseList.Length)
+        if (Index + 1 >= ChoseList.Length)
         {
             Index = 0;
             return;

@@ -22,6 +22,8 @@
 	<entry id="register_password_confirm_placeholder">Confirm Password</entry>
 	<entry id="latest_version_info">The latest version is {0}.</entry>
 	<entry id="latest_version_error">Couldn't get latest version info.</entry>
+  <entry id="language_title">LANGUAGE:</entry>
+  <entry id="language_text">ENGLISH</entry>
 	<entry id="news_error">News couldn't be loaded.</entry>
 	<entry id="error_title">Error</entry>
 	<entry id="error_no_decks">You have no available decks. Please create one and come back.</entry>
@@ -106,6 +108,7 @@
 	<entry id="opponents_graveyard_text">Opponent's graveyard</entry>
 	<entry id="my_deck_text">My deck (shuffled)</entry>
 	<entry id="redraw_info">Choose cards to redraw [{0}/{1}]</entry>
+  <entry id="search_placeholder">Search</entry>
 
 	<entry id="card_12004_name">Geralt of Rivia</entry>
 	<entry id="card_12004_info">No effects</entry>

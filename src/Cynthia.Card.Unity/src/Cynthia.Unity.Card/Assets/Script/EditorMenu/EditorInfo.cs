@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Cynthia.Card;
-using UnityEngine.UI;
-using UnityEngine;
-using System.Linq;
-using Alsein.Extensions;
-using Alsein.Extensions.Extensions;
+﻿using Alsein.Extensions;
 using Autofac;
+using Cynthia.Card;
 using Cynthia.Card.Client;
-using System;
 using DG.Tweening;
-using System.Threading.Tasks;
-using Assets.Script.GlobalUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Assets.Script.LanguageScript;
+using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.UI.Scrollbar;
+using UnityEngine.UI;
+using Cynthia.Card.Common.Extensions;
 
 public class EditorInfo : MonoBehaviour
 {
@@ -224,10 +221,10 @@ public class EditorInfo : MonoBehaviour
             _cards
             .Where(x => ((_showFaction == Faction.All) ? true : (x.Faction == _showFaction)))
             .Where(x => ((_showSearchMessage == "") ? true :
-                (x.CardInfo().Name.Contains(_showSearchMessage) ||
-                x.CardInfo().Info.Contains(_showSearchMessage) ||
+                (x.CardInfo().Name.Contains(_showSearchMessage, StringComparison.OrdinalIgnoreCase) ||
+                x.CardInfo().Info.Contains(_showSearchMessage, StringComparison.OrdinalIgnoreCase) ||
                 x.CardInfo().Strength.ToString().Contains(_showSearchMessage) ||
-                x.Categories.Select(tag => GwentMap.CategorieInfoMap[tag]).Any(text => text.Contains(_showSearchMessage))
+                x.Categories.Select(tag => GwentMap.CategorieInfoMap[tag]).Any(text => text.Contains(_showSearchMessage, StringComparison.OrdinalIgnoreCase))
                 )))
             .ToList()
         );
@@ -311,7 +308,7 @@ public class EditorInfo : MonoBehaviour
             _clientService.User.Decks.RemoveAt(i);
             SetDeckList(_clientService.User.Decks);
         }
-        
+
     }
 
     public void ShowDeckEditorClick(string Id)
@@ -346,10 +343,10 @@ public class EditorInfo : MonoBehaviour
                 new Vector2(-470, 0), 0.5f);//展开Left
             DOTween.To(() => RightSwitchMenu.anchoredPosition, x => RightSwitchMenu.anchoredPosition = x,
                 new Vector2(468, 0), 0.5f);//展开Right
-                                           /*
-                                           Titile x:0 | Y:478.5 true    Y: 605 false
-                                           Left y:0 | X:-470 true     X: -1700 false
-                                           Right y:0 | X: 468 true     X: 1700 false*/
+            /*
+            Titile x:0 | Y:478.5 true    Y: 605 false
+            Left y:0 | X:-470 true     X: -1700 false
+            Right y:0 | X: 468 true     X: 1700 false*/
             EditorStatus = EditorStatus.SwitchFaction;
             SetSwitchList(((Faction[])Enum.GetValues(typeof(Faction)))
                 .Where(x => x != Faction.All && x != Faction.Neutral)
