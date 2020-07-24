@@ -271,7 +271,7 @@ public class GameCardShowControl : MonoBehaviour
         {
             //这里是正常的逻辑
             //设置标题
-            useCardTitle = info.Title;
+            useCardTitle = LanguageManager.Instance.GetText("choose_cards_title");
             //设置卡组列表
             UseCardList = info.SelectList;
             OpenButton.SetActive(true);//打开显示按钮

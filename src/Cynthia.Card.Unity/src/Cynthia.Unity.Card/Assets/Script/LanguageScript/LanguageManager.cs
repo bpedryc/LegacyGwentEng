@@ -42,7 +42,6 @@ namespace Assets.Script.LanguageScript
         {
             Texts.Clear();
 
-            //var langFilePath = $"{Application.dataPath}\\Locales\\{_gameLanguage.Filename}.xml";
             var localeFile = Resources.Load<TextAsset>($"Locales/{_gameLanguage.Filename}");
             var document = new XmlDocument();
             document.Load(new StringReader(localeFile.text));

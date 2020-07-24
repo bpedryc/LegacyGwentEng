@@ -591,7 +591,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
@@ -1588,7 +1588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: ExitButton
+      value: ExitButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -2891,7 +2891,7 @@ GameObject:
   - component: {fileID: 367363489}
   - component: {fileID: 367363488}
   m_Layer: 5
-  m_Name: EnemyPoint
+  m_Name: EnemyPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3671,12 +3671,12 @@ MonoBehaviour:
     TextObject: {fileID: 679582477}
   - Id: graveyard_info
     TextObject: {fileID: 329895024}
-  - Id: round_win_text
+  - Id: your_turn_text
     TextObject: {fileID: 1848380670}
-  - Id: round_lost_text
-    TextObject: {fileID: 1641194795}
-  - Id: starting_second_round
-    TextObject: {fileID: 811157681}
+  - Id: confirm_button
+    TextObject: {fileID: 1594329659}
+  - Id: hide_button
+    TextObject: {fileID: 436587707}
   - Id: victory_text
     TextObject: {fileID: 1686351662}
   - Id: score_title
@@ -3687,10 +3687,6 @@ MonoBehaviour:
     TextObject: {fileID: 650711252}
   - Id: exit_button
     TextObject: {fileID: 264761654}
-  - Id: confirm_button
-    TextObject: {fileID: 1594329659}
-  - Id: hide_button
-    TextObject: {fileID: 436587707}
 --- !u!1 &433192641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: HideButton
+      value: HideButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -4933,7 +4929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: FinishRedrawingButton
+      value: FinishRedrawingButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -6374,7 +6370,7 @@ GameObject:
   - component: {fileID: 811157684}
   - component: {fileID: 811157683}
   m_Layer: 5
-  m_Name: StartingRound2
+  m_Name: ResultMessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7205,7 +7201,7 @@ GameObject:
   - component: {fileID: 895456318}
   - component: {fileID: 895456317}
   m_Layer: 5
-  m_Name: BigRoundTitle
+  m_Name: ResultTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7355,7 +7351,7 @@ GameObject:
   - component: {fileID: 912428080}
   - component: {fileID: 912428082}
   m_Layer: 5
-  m_Name: RoundLost
+  m_Name: RoundResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8806,7 +8802,7 @@ GameObject:
   - component: {fileID: 1136800739}
   - component: {fileID: 1136800738}
   m_Layer: 5
-  m_Name: BigRoundTestMsg
+  m_Name: ResultMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9155,7 +9151,7 @@ GameObject:
   - component: {fileID: 1170565696}
   - component: {fileID: 1170565697}
   m_Layer: 5
-  m_Name: RoundWon
+  m_Name: YourRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11020,12 +11016,12 @@ GameObject:
   - component: {fileID: 1455268978}
   - component: {fileID: 1455268977}
   m_Layer: 5
-  m_Name: BigRoundPointMsg
+  m_Name: ResultPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1455268976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12098,7 +12094,7 @@ GameObject:
   - component: {fileID: 1541007578}
   - component: {fileID: 1541007577}
   m_Layer: 5
-  m_Name: MyPoint
+  m_Name: MyPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12586,7 +12582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
       propertyPath: m_Name
-      value: ConfirmButton
+      value: ConfirmButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
@@ -13071,7 +13067,7 @@ GameObject:
   - component: {fileID: 1641194797}
   - component: {fileID: 1641194799}
   m_Layer: 5
-  m_Name: RoundLostText
+  m_Name: ResultTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14369,7 +14365,7 @@ GameObject:
   - component: {fileID: 1848380673}
   - component: {fileID: 1848380672}
   m_Layer: 5
-  m_Name: RoundWinText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14383,7 +14379,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848380670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1031923842}

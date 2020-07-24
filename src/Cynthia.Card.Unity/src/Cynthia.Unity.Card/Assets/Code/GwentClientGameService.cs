@@ -6,6 +6,7 @@ using Alsein.Extensions;
 using UnityEngine;
 using Alsein.Extensions.LifetimeAnnotations;
 using System.Threading;
+using Assets.Script.LanguageScript;
 
 namespace Cynthia.Card.Client
 {
@@ -100,7 +101,12 @@ namespace Cynthia.Card.Client
                     Debug.Log(arguments[0].ToType<string>());
                     break;
                 case ServerOperationType.MessageBox:
-                    _ = GlobalUIService.YNMessageBox("收到了一个来自服务器的消息", arguments[0].ToType<string>());
+                    var lang = LanguageManager.Instance;
+                    _ = GlobalUIService.YNMessageBox(
+                        lang.GetText("opponent_disconnected_title"),
+                        lang.GetText("opponent_disconnected_text"),
+                        "ok_button",
+                        isOnlyYes: true);
                     break;
                 case ServerOperationType.GetDragOrPass:
                     GameCodeService.GetPlayerDrag(_player);
@@ -152,7 +158,7 @@ namespace Cynthia.Card.Client
                     GameCodeService.BigRoundShowPoint(arguments[0].ToType<BigRoundInfomation>());
                     break;
                 case ServerOperationType.BigRoundSetMessage:
-                    GameCodeService.BigRoundSetMessage(arguments[0].ToType<string>());
+                    GameCodeService.BigRoundSetMessage();
                     break;
                 case ServerOperationType.BigRoundShowClose:
                     GameCodeService.BigRoundShowClose();

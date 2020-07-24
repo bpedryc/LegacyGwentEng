@@ -92,9 +92,12 @@
 	<entry id="new_deck_button">NEW DECK</entry>
 	<entry id="show_button">SHOW</entry>
 	<entry id="graveyard_info">View your graveyard</entry>
-	<entry id="round_win_text">YOU WON THE ROUND!</entry>
-	<entry id="round_lost_text">YOU LOST THE ROUND</entry>
+	<entry id="your_turn_text">YOUR TURN</entry>
+  <entry id="round_won_text">YOU WON THE ROUND!</entry>
+  <entry id="round_lost_text">YOU LOST THE ROUND!</entry>
+  <entry id="round_draw_text">DRAW!</entry>
 	<entry id="starting_second_round">Starting round 2</entry>
+  <entry id="starting_last_round">Starting the last round!</entry>
 	<entry id="victory_text">VICTORY</entry>
 	<entry id="score_title">Score</entry>
 	<entry id="finish_redrawing_button">FINISH REDRAWING</entry>
@@ -109,6 +112,9 @@
 	<entry id="my_deck_text">My deck (shuffled)</entry>
 	<entry id="redraw_info">Choose cards to redraw [{0}/{1}]</entry>
   <entry id="search_placeholder">Search</entry>
+  <entry id="opponent_disconnected_title">Your opponent left</entry>
+  <entry id="opponent_disconnected_text">You win the game!</entry>
+  <entry id="choose_cards_title">Choose cards</entry>
 
 	<entry id="card_12004_name">Geralt of Rivia</entry>
 	<entry id="card_12004_info">No effects</entry>
@@ -237,10 +243,10 @@
 	<entry id="card_12042_info">Choose One: Deal 3 damage to all enemies with odd power; or Deal 3 damage to all enemies with even power; or Play a random Bronze or Silver unit from your deck.</entry>
 	<entry id="card_12042_flavor">"What's written on this blade? That a curse?" "No. An insult." </entry>
 	<entry id="card_13003_name">Sarah</entry>
-	<entry id="card_13003_info">交换1张颜色相同的牌。</entry>
+	<entry id="card_13003_info">Swap a card for one of the same color.</entry>
 	<entry id="card_13003_flavor">来陪小莎拉玩游戏吧！</entry>
 	<entry id="card_13004_name">Iris' Companions</entry>
-	<entry id="card_13004_info">将1张牌从牌组移至手牌，然后随机丢弃1张牌。</entry>
+	<entry id="card_13004_info">Move a card from your deck to your hand, then Discard a random card.</entry>
 	<entry id="card_13004_flavor">我们的名字还是不说为好。就当我们是……主人家的朋友吧。</entry>
 	<entry id="card_13005_name">Germain Piquant</entry>
 	<entry id="card_13005_info">Spawn 2 Cows on each side of this unit. </entry>
@@ -380,8 +386,8 @@
 	<entry id="card_14005_name">Biting Frost</entry>
 	<entry id="card_14005_info">Apply a Hazard to an enemy row that deals 2 damage to the Lowest unit on turn start. </entry>
 	<entry id="card_14005_flavor">寒霜凛冽的好处就是尸体不会腐烂得那么快。</entry>
-	<entry id="card_14006_name">惊悚咆哮</entry>
-	<entry id="card_14006_info">摧毁1个友军单位。 生成1头“熊”。</entry>
+	<entry id="card_14006_name">Bloodcurdling Roa</entry>
+	<entry id="card_14006_info">Destroy a friendly unit. Spawn and play a bear.</entry>
 	<entry id="card_14006_flavor">起初我们碰上了一头熊……悲剧就从那时开始了。</entry>
 	<entry id="card_14007_name">Dimeritium Shackles</entry>
 	<entry id="card_14007_info">Lock a unit. If an enemy, deal 4 damage to it.</entry>
@@ -459,7 +465,7 @@
 	<entry id="card_15003_info">Send Shupe to the Ban Ard Academy. Draw 1 card; Charm a random enemy unit; Spawn a random hazard on all opponent's rows; Deal 10 damage to an enemy unit, than 5 damage to adjacent units; Play a special card from your deck.</entry>
 	<entry id="card_15003_flavor">其他巨魔都觉得他是个异类，毕竟在巨魔们看来，谁会喜欢彩色纸片胜过喜欢石头呢？</entry>
 	<entry id="card_15004_name">Chironex</entry>
-	<entry id="card_15004_info">Remove 2 strength from all units on the battlefiel</entry>
+	<entry id="card_15004_info">Remove 2 strength from all units on the battlefield</entry>
 	<entry id="card_15004_flavor">“天呐，那根本不是独角兽！那是……”——著名奇珍收藏家崴尔玛的遗言。</entry>
 	<entry id="card_15005_name">???</entry>
 	<entry id="card_15005_info">No Ability.</entry>

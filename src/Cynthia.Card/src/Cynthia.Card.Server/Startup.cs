@@ -27,7 +27,9 @@ namespace Cynthia.Card.Server
             services.AddSingleton<GwentCardTypeService>();
             services.AddSingleton<CounterService>();
             services.AddSingleton<Random>(x => new Random((int)DateTime.UtcNow.Ticks));
-            var connectionString = "mongodb://localhost:28020/gwent";
+            var connectionString = (_env.IsDevelopment())
+                ? "mongodb+srv://cynthia:q123456@cluster0-n0gv4.mongodb.net/gwent"
+                : "mongodb://localhost:28020/gwent";
             services.AddTransient<IMongoClient, MongoClient>(x => new MongoClient(connectionString));
         }
 

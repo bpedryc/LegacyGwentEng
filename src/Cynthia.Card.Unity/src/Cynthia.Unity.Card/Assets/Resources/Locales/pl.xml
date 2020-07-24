@@ -90,9 +90,12 @@
 	<entry id="new_deck_button">NOWA TALIA</entry>
 	<entry id="show_button">POKAŻ</entry>
 	<entry id="graveyard_info">Zobacz swój cmentarz</entry>
-	<entry id="round_win_text">WYGRAŁEŚ RUNDĘ!</entry>
-	<entry id="round_lost_text">PRZEGRAŁEŚ RUNDĘ!</entry>
+	<entry id="your_turn_text">TWOJA TURA!</entry>
+  <entry id="round_won_text">WYGRAŁEŚ RUNDĘ!</entry>
+  <entry id="round_lost_text">PRZEGRAŁEŚ RUNDĘ!</entry>
+  <entry id="round_draw_text">REMIS!</entry>
 	<entry id="starting_second_round">Rozpoczynanie rundy 2</entry>
+  <entry id="starting_last_round">Rozpoczynanie rundy finałowej!</entry>
 	<entry id="victory_text">ZWYCIĘSTWO</entry>
 	<entry id="score_title">Wynik</entry>
 	<entry id="finish_redrawing_button">ZAKOŃCZ WYMIANĘ</entry>
@@ -107,6 +110,9 @@
 	<entry id="my_deck_text">Moja talia (w stanie początkowym)</entry>
 	<entry id="redraw_info">Wybierz karty do wymiany [{0}/{1}]</entry>
 	<entry id="search_placeholder">Szukaj</entry>
+  <entry id="opponent_disconnected_title">Przeciwnik opuścił grę</entry>
+  <entry id="opponent_disconnected_text">Rozgrywka zakończyła się twoim zwycięstwem!</entry>
+  <entry id="choose_cards_title">Wybierz karty</entry>
 
 	<entry id="card_12004_name">Geralt z Rivii</entry>
 	<entry id="card_12004_info">Brak umiejętności.</entry>

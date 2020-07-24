@@ -64,7 +64,7 @@ public class MatchInfo : MonoBehaviour
         if (_client.User.Decks.Count() <= 0)
         {
             var lang = LanguageManager.Instance;
-            _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_no_decks"));
+            _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_no_decks"), "ok_button", isOnlyYes: true);
         }
         else
         {
@@ -108,7 +108,7 @@ public class MatchInfo : MonoBehaviour
         if (!_client.User.Decks.Single(x => x.Id == CurrentDeckId).IsBasicDeck())
         {
             var lang = LanguageManager.Instance;
-            await _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_incomplete_deck"));
+            await _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_incomplete_deck"), "ok_button", isOnlyYes: true);
             return;
         }
         //否则尝试开始匹配(目前不关注匹配结果)

@@ -92,9 +92,12 @@
 	<entry id="new_deck_button">新建牌组</entry>
 	<entry id="show_button">显示卡牌</entry>
 	<entry id="graveyard_info">我方墓地</entry>
-	<entry id="round_win_text">己方回合!</entry>
-	<entry id="round_lost_text">本局战败!</entry>
+	<entry id="your_turn_text">己方回合!</entry>
+  <entry id="round_won_text">本局胜利!</entry>
+  <entry id="round_lost_text">本局失败!</entry>
+  <entry id="round_draw_text">本局平局</entry>
 	<entry id="starting_second_round">第 2 局开始!</entry>
+  <entry id="starting_last_round">决胜局开始!</entry>
 	<entry id="victory_text">胜利</entry>
 	<entry id="score_title">得分</entry>
 	<entry id="finish_redrawing_button">手牌调度完毕</entry>
@@ -104,12 +107,15 @@
 	<entry id="opponent_replacing_cards">敌方正在调度手牌</entry>
 	<entry id="defeat_text">失败</entry>
 	<entry id="draw_text">平局</entry>
-  	<entry id="my_graveyard_text">我方墓地</entry>
+  <entry id="my_graveyard_text">我方墓地</entry>
 	<entry id="opponents_graveyard_text">敌方墓地</entry>
 	<entry id="my_deck_text">我方卡组(原始状态,顺序)</entry>
 	<entry id="redraw_info">"选择1张卡重抽。[{0}/{1}]</entry>
-  	<entry id="search_placeholder">搜索</entry>
-  	<entry id="graveyard_text">墓地</entry>
+  <entry id="search_placeholder">搜索</entry>
+  <entry id="graveyard_text">墓地</entry>
+  <entry id="opponent_disconnected_title">收到了一个来自服务器的消息</entry>
+  <entry id="opponent_disconnected_text">对方已断开连接,比赛结束!</entry>
+  <entry id="choose_cards_title">选择一张卡牌</entry>
 
 	<entry id="card_12004_name">利维亚的杰洛特</entry>
 	<entry id="card_12004_info">没有特殊技能。</entry>
