@@ -3955,7 +3955,7 @@ MonoBehaviour:
   NowVersionText: {fileID: 692651530}
   LatestVersionText: {fileID: 1295492732}
   NotesText: {fileID: 847789412}
-  Translator: {fileID: 1682966723}
+  GameObjectTranslator: {fileID: 1682966723}
 --- !u!114 &2118638943
 MonoBehaviour:
   m_ObjectHideFlags: 0

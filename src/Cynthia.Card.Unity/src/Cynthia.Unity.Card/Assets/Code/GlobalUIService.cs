@@ -20,7 +20,8 @@ namespace Cynthia.Card.Client
         }
         public Task<bool> YNMessageBox(string title, string message, string yes = "yes_button", string no = "no_button", bool isOnlyYes = false)
         {
-            return _messageBox().Show(title.Replace("\\n", "\n"), message.Replace("\\n", "\n"), yes, no, isOnlyYes);
+            //return _messageBox().Show(title.Replace("\\n", "\n"), message.Replace("\\n", "\n"), yes, no, isOnlyYes);
+            return _messageBox().Show(title, message, yes, no, isOnlyYes);
         }
 
         public void Wait(string title, string message)

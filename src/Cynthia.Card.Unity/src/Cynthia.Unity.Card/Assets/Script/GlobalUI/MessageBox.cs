@@ -1,6 +1,9 @@
-﻿using Alsein.Extensions.IO;
+﻿using System.Runtime.InteropServices.WindowsRuntime;
+using Alsein.Extensions.IO;
 using System.Threading.Tasks;
 using Assets.Script.LanguageScript;
+using Autofac;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,16 +21,20 @@ public class MessageBox : MonoBehaviour
     //private IAsyncDataSender sender;
     //private IAsyncDataReceiver receiver;
     public RectTransform Context;
+
+    private ITranslator _translator;
+
     private void Awake()
     {
         (sender, receiver) = Tube.CreateSimplex();
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
     }
     public void Wait(string title, string message)
     {
         Buttons.SetActive(false);
-        TitleText.text = title;
-        MessageText.text = message;
         gameObject.SetActive(true);
+        TitleText.text = _translator.GetText(title);
+        MessageText.text = _translator.GetText(message);
     }
     public void Close()
     {
@@ -47,21 +54,21 @@ public class MessageBox : MonoBehaviour
             YesButton.SetActive(true);
             NoButton.SetActive(true);
         }
-        TitleText.text = title;
-        MessageText.text = message;
-        YesText.text = LanguageManager.Instance.GetText(yes);
-        NoText.text = LanguageManager.Instance.GetText(no);
         gameObject.SetActive(true);
+        TitleText.text = _translator.GetText(title);
+        MessageText.text = _translator.GetText(message);
+        YesText.text = _translator.GetText(yes);
+        NoText.text = _translator.GetText(no);
         return receiver.ReceiveAsync<bool>();
     }
     public void YesClick()
     {
-        sender.SendAsync<bool>(true);
+        sender.SendAsync(true);
         gameObject.SetActive(false);
     }
     public void NoClick()
     {
-        sender.SendAsync<bool>(false);
+        sender.SendAsync(false);
         gameObject.SetActive(false);
     }
 }

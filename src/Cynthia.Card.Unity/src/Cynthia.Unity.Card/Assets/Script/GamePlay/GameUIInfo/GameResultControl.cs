@@ -1,5 +1,7 @@
 ﻿using Assets.Script.LanguageScript;
+using Autofac;
 using Cynthia.Card;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,10 +55,16 @@ public class GameResultControl : MonoBehaviour
     public Sprite GameLoseBgRight;
     public Sprite GameDrawBgLeft;
     public Sprite GameDrawBgRight;
+    //-----------------------------------------------------------
+    private ITranslator _translator;
+
+    private void Awake()
+    {
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
+    }
 
     public void ShowGameResult(GameResultInfomation gameResult)
     {
-        var lang = LanguageManager.Instance;
         MyName.text = gameResult.MyName;
         EnemyName.text = gameResult.EnemyName;
         if (gameResult.RoundCount < 3)
@@ -70,7 +78,7 @@ public class GameResultControl : MonoBehaviour
             BackgroundMain.color = ClientGlobalInfo.WinBgColor;
             BackgroundLeft.sprite = GameWinBgLeft;
             BackgroundRight.sprite = GameWinBgRight;
-            TitleResult.text = lang.GetText("victory_text");
+            TitleResult.text = _translator.GetText("victory_text");
             TitleResult.color = ClientGlobalInfo.MyColor;
         }
         if (gameResult.GameStatu == GameStatus.Lose)
@@ -78,7 +86,7 @@ public class GameResultControl : MonoBehaviour
             BackgroundMain.color = ClientGlobalInfo.LoseBgColor;
             BackgroundLeft.sprite = GameLoseBgLeft;
             BackgroundRight.sprite = GameLoseBgRight;
-            TitleResult.text = lang.GetText("defeat_text");
+            TitleResult.text = _translator.GetText("defeat_text");
             TitleResult.color = ClientGlobalInfo.EnemyColor;
         }
         if (gameResult.GameStatu == GameStatus.Draw)
@@ -86,7 +94,7 @@ public class GameResultControl : MonoBehaviour
             BackgroundMain.color = ClientGlobalInfo.DrawBgColor;
             BackgroundLeft.sprite = GameDrawBgLeft;
             BackgroundRight.sprite = GameDrawBgRight;
-            TitleResult.text = lang.GetText("draw_text");
+            TitleResult.text = _translator.GetText("draw_text");
             TitleResult.color = ClientGlobalInfo.NormalColor;
         }
         var myWinCount = 0;

@@ -10833,6 +10833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090, type: 3}
+      propertyPath: m_Name
+      value: ExitButtonText
+      objectReference: {fileID: 0}
     - target: {fileID: 114533055442639346, guid: 6be3854b80cfb9940b30c2d96ef0d090,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -10968,6 +10972,12 @@ PrefabInstance:
 --- !u!224 &1169235660 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224151824304099934, guid: 6be3854b80cfb9940b30c2d96ef0d090,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169235659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1169235661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948117501509930, guid: 6be3854b80cfb9940b30c2d96ef0d090,
     type: 3}
   m_PrefabInstance: {fileID: 1169235659}
   m_PrefabAsset: {fileID: 0}
@@ -19747,6 +19757,8 @@ MonoBehaviour:
     TextObject: {fileID: 1408104466}
   - Id: deck_ready
     TextObject: {fileID: 2128066986}
+  - Id: exit_button
+    TextObject: {fileID: 1169235661}
 --- !u!4 &2134661150
 Transform:
   m_ObjectHideFlags: 0

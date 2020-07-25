@@ -42,12 +42,9 @@ public class MainCode : MonoBehaviour
     }
     public async void ExitGameClick()
     {
-        var lang = LanguageManager.Instance;
-        if (await _globalUIService.YNMessageBox(lang.GetText("exit_title"), lang.GetText("exit_confirm")))
+        if (await _globalUIService.YNMessageBox("exit_title", "exit_confirm"))
         {
-            //进行一些处理
             Application.Quit();
-            return;
         }
     }
 }

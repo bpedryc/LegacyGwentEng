@@ -1,5 +1,7 @@
 ﻿using Assets.Script.LanguageScript;
+using Autofac;
 using Cynthia.Card;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 public class BigRoundControl : MonoBehaviour
@@ -18,39 +20,39 @@ public class BigRoundControl : MonoBehaviour
     public GameObject EnemyWinCountLeft;
     public GameObject EnemyWinCountRight;
 
-    public void Test()
+    private ITranslator _translator;
+
+    private void Start()
     {
-        //ShowPoint(false, "输掉啦!", 1, 99999, 0, 2);
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
     }
 
     public void ShowPoint(BigRoundInfomation data)
     {
-        var lang = LanguageManager.Instance;
-
         if (data.GameStatus == GameStatus.Draw)
         {
             BigRoundBg.color = new Color32(10, 10, 10, 220);
             TitleBg.color = new Color32(200, 130, 80, 255);
-            Title.text = lang.GetText("round_draw_text");
-            Message.text = lang.GetText("starting_last_round");
+            Title.text = _translator.GetText("round_draw_text");
+            Message.text = _translator.GetText("starting_last_round");
         }
         if (data.GameStatus == GameStatus.Win)
         {
             BigRoundBg.color = new Color32(10, 10, 24, 220);
             TitleBg.color = new Color32(0, 130, 255, 255);
-            Title.text = lang.GetText("round_won_text");
+            Title.text = _translator.GetText("round_won_text");
 
             var roundCount = data.EnemyWinCount + data.MyWinCount;
-            Message.text = lang.GetText(roundCount == 1 ? "starting_second_round" : "starting_last_round");
+            Message.text = _translator.GetText(roundCount == 1 ? "starting_second_round" : "starting_last_round");
         }
         if (data.GameStatus == GameStatus.Lose)
         {
             BigRoundBg.color = new Color32(24, 10, 10, 220);
             TitleBg.color = new Color32(255, 0, 0, 255);
-            Title.text = lang.GetText("round_lost_text");
+            Title.text = _translator.GetText("round_lost_text");
 
             var roundCount = data.EnemyWinCount + data.MyWinCount;
-            Message.text = lang.GetText(roundCount == 1 ? "starting_second_round" : "starting_last_round");
+            Message.text = _translator.GetText(roundCount == 1 ? "starting_second_round" : "starting_last_round");
         }
 
         SetPoint(data);
@@ -96,41 +98,4 @@ public class BigRoundControl : MonoBehaviour
         PointShow.SetActive(false);
         MessageShow.SetActive(true);
     }
-
-    /*public void ShowMessage(BigRoundInfomation data)
-    {
-        //bool isWin,string title, string message
-        //Title.text = data.Title;
-
-        BigRound.SetActive(true);
-        var lang = LanguageManager.Instance;
-
-        if (data.GameStatus == GameStatus.Win)
-        {
-            BigRoundBg.color = new Color32(10, 10, 24, 220);
-            TitleBg.color = new Color32(0, 130, 255, 255);
-            Title.text = lang.GetText("won_round_text");
-        }
-        else if (data.GameStatus == GameStatus.Lose)
-        {
-            BigRoundBg.color = new Color32(24, 10, 10, 220);
-            TitleBg.color = new Color32(255, 0, 0, 255);
-            Title.text = lang.GetText("lost_round_text");
-        }
-        else
-        {
-            BigRoundBg.color = new Color32(10, 10, 10, 220);
-            TitleBg.color = new Color32(200, 130, 80, 255);
-            Title.text = lang.GetText("draw_round_text");
-        }
-        SetMessage(data.Message);
-        BigRound.SetActive(true);
-    }
-
-    public void SetMessage(string message)
-    {
-        //Message.text = message;
-        PointShow.SetActive(false);
-        MessageShow.SetActive(true);
-    }*/
 }

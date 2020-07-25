@@ -3,6 +3,8 @@ using Cynthia.Card;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Script.LanguageScript;
+using Autofac;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,27 +71,21 @@ public class CardContent : MonoBehaviour
         Head.sprite = HeadMap[cardStatus.Faction];
         Bottom.sprite = ContentMap[cardStatus.Faction];
 
-        var lang = LanguageManager.Instance;
-        CardInfoText.text = lang.GetText($"card_{cardStatus.CardId}_info");
-        CardNameText.text = lang.GetText($"card_{cardStatus.CardId}_name");
-        TagsText.text = cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x])
-            .ForAll(t => t = lang.GetText($"card_{t}_tag")).Join(", ");
+        var translator = DependencyResolver.Container.Resolve<ITranslator>();
 
-        var immuneTag = lang.GetText("card_immune_tag");
+        CardInfoText.text = translator.GetText($"card_{cardStatus.CardId}_info");
+        CardNameText.text = translator.GetText($"card_{cardStatus.CardId}_name");
+        TagsText.text = cardStatus.Categories.Select(x => GwentMap.CategorieInfoMap[x])
+            .ForAll(t => t = translator.GetText($"card_{t}_tag")).Join(", ");
+
+        var immuneTag = translator.GetText("card_immune_tag");
         if (cardStatus.IsImmue)
             TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? immuneTag : $", {immuneTag}";
 
-        var doomedTag = lang.GetText("card_doomed_tag");
+        var doomedTag = translator.GetText("card_doomed_tag");
         if (cardStatus.IsDoomed && !TagsText.text.Contains(doomedTag))
             TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? doomedTag : $", {doomedTag}";
 
-        /*if (cardStatus.IsDoomed && !TagsText.text.Contains("佚亡"))
-            TagsText.text += string.IsNullOrWhiteSpace(TagsText.text) ? "佚亡" : ", 佚亡";*/
         Content.sizeDelta = new Vector2(Content.sizeDelta.x, CardInfoText.preferredHeight + 115);
-    }
-
-    public string ToTrueString(string s)
-    {
-        return s.Replace(" ", "\u00A0");
     }
 }

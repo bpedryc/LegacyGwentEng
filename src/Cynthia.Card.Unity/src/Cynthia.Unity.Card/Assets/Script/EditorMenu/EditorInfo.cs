@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Cynthia.Card.Common.Extensions;
+using Cynthia.Card.Common.Models;
 
 public class EditorInfo : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class EditorInfo : MonoBehaviour
     private IList<CardStatus> _cards { get => GwentMap.GetCards(isHasAgent: true).ToList(); }//所有的卡牌
     private GwentClientService _clientService;
     private GlobalUIService _globalUIService;
+    private ITranslator _translator;
     public EditorStatus EditorStatus { get; private set; } = EditorStatus.Close;
     //
     public GameObject EditorBodyMian;
@@ -92,6 +94,7 @@ public class EditorInfo : MonoBehaviour
     {
         _clientService = DependencyResolver.Container.Resolve<GwentClientService>();
         _globalUIService = DependencyResolver.Container.Resolve<GlobalUIService>();
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
     }
 
     void Start()
@@ -200,7 +203,7 @@ public class EditorInfo : MonoBehaviour
         EditorStatus = EditorStatus.ShowCards;
         _nowSwitchLeaderId = null;
         _nowEditorDeck = null;
-        DeckName.text = LanguageManager.Instance.GetText("default_deckname");
+        DeckName.text = _translator.GetText("default_deckname");
         _nowEditorGroup = Group.Leader;
         EditorBodyCore.SetActive(false);
         EditorBodyMian.SetActive(true);
@@ -225,7 +228,7 @@ public class EditorInfo : MonoBehaviour
                 x.CardInfo().Info.Contains(_showSearchMessage, StringComparison.OrdinalIgnoreCase) ||
                 x.CardInfo().Strength.ToString().Contains(_showSearchMessage) ||
                 x.Categories
-                    .Select(tag => LanguageManager.Instance.GetText($"card_{GwentMap.CategorieInfoMap[tag]}_tag"))
+                    .Select(tag => _translator.GetText($"card_{GwentMap.CategorieInfoMap[tag]}_tag"))
                     .Any(text => text.Contains(_editorSearchMessage, StringComparison.OrdinalIgnoreCase))
                 )))
             .ToList()
@@ -293,16 +296,13 @@ public class EditorInfo : MonoBehaviour
 
     public async void ShowDeckRemoveClick(string Id)
     {
-        var deckName = _clientService.User.Decks.Single(x => x.Id == Id).Name;
-        var lang = LanguageManager.Instance;
-        if (!await _globalUIService.YNMessageBox(lang.GetText("delete_title"),
-            string.Format(lang.GetText("delete_deck_confirm"), deckName)))
+        var deckName = _clientService.User.Decks.Single(x => x.Id == Id).Name; ;
+        if (!await _globalUIService.YNMessageBox("delete_title", string.Format(_translator.GetText("delete_deck_confirm"), deckName)))
             return;
 
         if (!(await _clientService.RemoveDeck(Id)))
         {
-            await _globalUIService.YNMessageBox(lang.GetText("error_title"),
-                string.Format(lang.GetText("error_deleting_deck"), deckName));
+            await _globalUIService.YNMessageBox("error_title", string.Format(_translator.GetText("error_deleting_deck"), deckName));
         }
         else
         {
@@ -332,10 +332,9 @@ public class EditorInfo : MonoBehaviour
 
     public void AddDeckClick()
     {   //点击新建按钮后
-        var lang = LanguageManager.Instance;
         if (_clientService.User.Decks.Count >= 40)
         {
-            _globalUIService.YNMessageBox(lang.GetText("limit_title"), lang.GetText("deck_limit"));
+            _globalUIService.YNMessageBox("limit_title", "deck_limit");
         }
         else
         {
@@ -356,7 +355,7 @@ public class EditorInfo : MonoBehaviour
                 .ToList());
             _nowSwitchLeaderId = null;
             _nowEditorDeck = null;
-            DeckName.text = lang.GetText("default_deckname");
+            DeckName.text = _translator.GetText("default_deckname");
         }
     }
 
@@ -406,7 +405,6 @@ public class EditorInfo : MonoBehaviour
 
     public async void SwitchReturn()
     {
-        var lang = LanguageManager.Instance;
         switch (EditorStatus)
         {
             case EditorStatus.SwitchLeader://选择领袖阶段,变回选择势力
@@ -417,7 +415,7 @@ public class EditorInfo : MonoBehaviour
                 EditorStatus = EditorStatus.SwitchFaction;
                 _nowSwitchLeaderId = null;
                 _nowEditorDeck = null;
-                DeckName.text = lang.GetText("default_deckname");
+                DeckName.text = _translator.GetText("default_deckname");
                 break;
             case EditorStatus.SwitchFaction://选择势力阶段,变为展示卡牌阶段
                 OpenEditor(false);
@@ -449,7 +447,7 @@ public class EditorInfo : MonoBehaviour
                 // }
                 // else
                 // {
-                _nowEditorDeck.Name = (DeckName.text == "" ? lang.GetText("default_deckname") : DeckName.text);
+                _nowEditorDeck.Name = (DeckName.text == "" ? _translator.GetText("default_deckname") : DeckName.text);
                 if (_clientService.User.Decks.Any(x => x.Id == (_nowEditorDeck.Id ?? "")))
                 {
                     // if (await _globalUIService.YNMessageBox("是否修改卡组?", $"是否修改卡组 {DeckName.text}"))
@@ -462,7 +460,7 @@ public class EditorInfo : MonoBehaviour
                     }
                     else
                     {
-                        if (!(await _globalUIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_adding_deck"))))
+                        if (!(await _globalUIService.YNMessageBox("error_title", "error_adding_deck")))
                         {
                             break;
                         }
@@ -481,7 +479,7 @@ public class EditorInfo : MonoBehaviour
                     }
                     else
                     {
-                        if (!(await _globalUIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_adding_deck"))))
+                        if (!(await _globalUIService.YNMessageBox("error_title", "error_adding_deck")))
                         {
                             break;
                         }
@@ -522,7 +520,7 @@ public class EditorInfo : MonoBehaviour
     public void ResetEditorCore()
     {//初始化
         EditorSearch.text = "";
-        DeckName.text = (_nowEditorDeck.Name == null || _nowEditorDeck.Name == "") ? LanguageManager.Instance.GetText("default_deckname") : _nowEditorDeck.Name;
+        DeckName.text = (_nowEditorDeck.Name == null || _nowEditorDeck.Name == "") ? _translator.GetText("default_deckname") : _nowEditorDeck.Name;
         EditorHeadT.sprite = EditorSpriteHeadT[GetFactionIndex(_nowSwitchFaction)];
         EditorHeadB.sprite = EditorSpriteHeadB[GetFactionIndex(_nowSwitchFaction)];
         //
@@ -601,7 +599,7 @@ public class EditorInfo : MonoBehaviour
                 x.CardInfo().Info.Contains(_editorSearchMessage, StringComparison.OrdinalIgnoreCase) ||
                 x.CardInfo().Strength.ToString().Contains(_editorSearchMessage) ||
                 x.Categories
-                    .Select(tag => LanguageManager.Instance.GetText($"card_{GwentMap.CategorieInfoMap[tag]}_tag"))
+                    .Select(tag => _translator.GetText($"card_{GwentMap.CategorieInfoMap[tag]}_tag"))
                     .Any(text => text.Contains(_editorSearchMessage, StringComparison.OrdinalIgnoreCase))
                 )))
             .Where(x => _nowEditorGroup == Group.Leader ? x.Group != Group.Leader : x.Group == _nowEditorGroup)

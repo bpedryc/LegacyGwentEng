@@ -1,17 +1,15 @@
 ﻿using Cynthia.Card.Common.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Xml;
+using Alsein.Extensions.LifetimeAnnotations;
 using UnityEngine;
 
 namespace Assets.Script.LanguageScript
 {
     class LanguageManager : ITranslator
     {
-        private static LanguageManager _instance;
-        public static LanguageManager Instance => _instance ?? (_instance = new LanguageManager());
         private Dictionary<string, string> Texts = new Dictionary<string, string>();
 
         private static readonly List<GameLocale> Locales = new List<GameLocale>(){

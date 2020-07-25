@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using System.Linq;
 using System.Threading.Tasks;
 using Assets.Script.LanguageScript;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,17 +18,21 @@ namespace Cynthia.Card.Client
         public LocalPlayer Player { get; set; }
         public UserInfo User { get; set; }
         public bool IsAutoPlay { get; set; } = false;
+
         private GlobalUIService _globalUIService;
         private ITubeInlet sender;/*待修改*/
         private ITubeOutlet receiver;/*待修改*/
-        /*待修改*/
+
+        private ITranslator _translator;
+
         public Task<bool> MatchResult()
         {
             return receiver.ReceiveAsync<bool>();
         }
 
-        public GwentClientService(HubConnection hubConnection, GlobalUIService globalUIService)
+        public GwentClientService(HubConnection hubConnection, GlobalUIService globalUIService, ITranslator translator)
         {
+            _translator = translator;
             _globalUIService = globalUIService;
             /*待修改*/
             (sender, receiver) = Tube.CreateSimplex();
@@ -39,15 +44,13 @@ namespace Cynthia.Card.Client
             hubConnection.On("RepeatLogin", async () =>
             {
                 SceneManager.LoadScene("LoginScene");
-                var lang = LanguageManager.Instance;
-                await DependencyResolver.Container.Resolve<GlobalUIService>().YNMessageBox(lang.GetText("logged_out_title"), lang.GetText("logged_out"));
+                await DependencyResolver.Container.Resolve<GlobalUIService>().YNMessageBox(_translator.GetText("logged_out_title"), _translator.GetText("logged_out"));
             });
             hubConnection.Closed += (async x =>
             {
                 SceneManager.LoadScene("LoginScene");
-                var lang = LanguageManager.Instance;
-                await _globalUIService.YNMessageBox(lang.GetText("disconnected_title"),
-                    lang.GetText("disconnected").Replace("\\n", "\n"),
+                await _globalUIService.YNMessageBox(_translator.GetText("disconnected_title"),
+                    _translator.GetText("disconnected").Replace("\\n", "\n"),
                     "ok_button", isOnlyYes: true);
 
                 // LayoutRebuilder.ForceRebuildLayoutImmediate(Context);
@@ -85,8 +88,7 @@ namespace Cynthia.Card.Client
         }
         public async void ExitGameClick()
         {
-            var lang = LanguageManager.Instance;
-            if (await _globalUIService.YNMessageBox(lang.GetText("quit_title"), lang.GetText("quit_confirm")))
+            if (await _globalUIService.YNMessageBox(_translator.GetText("quit_title"), _translator.GetText("quit_confirm")))
             {
                 Application.Quit();
             }

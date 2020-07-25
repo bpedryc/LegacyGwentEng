@@ -101,10 +101,9 @@ namespace Cynthia.Card.Client
                     Debug.Log(arguments[0].ToType<string>());
                     break;
                 case ServerOperationType.MessageBox:
-                    var lang = LanguageManager.Instance;
                     _ = GlobalUIService.YNMessageBox(
-                        lang.GetText("opponent_disconnected_title"),
-                        lang.GetText("opponent_disconnected_text"),
+                        "opponent_disconnected_title",
+                        "opponent_disconnected_text",
                         "ok_button",
                         isOnlyYes: true);
                     break;

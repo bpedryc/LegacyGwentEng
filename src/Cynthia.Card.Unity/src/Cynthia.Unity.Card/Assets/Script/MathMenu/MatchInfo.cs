@@ -5,6 +5,7 @@ using Cynthia.Card;
 using Cynthia.Card.Client;
 using System.Collections.Generic;
 using System.Linq;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -53,6 +54,13 @@ public class MatchInfo : MonoBehaviour
     public GameObject MatchUI;
     public MainMenuEffect[] ResetTextMenus;
     //-------------------------------------------
+    private ITranslator _translator;
+    //-------------------------------------------
+    private void Awake()
+    {
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
+    }
+
     public string CurrentDeckId { get; private set; }
     public bool IsDoingMatch { get; private set; }
 
@@ -63,8 +71,7 @@ public class MatchInfo : MonoBehaviour
     {
         if (_client.User.Decks.Count() <= 0)
         {
-            var lang = LanguageManager.Instance;
-            _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_no_decks"), "ok_button", isOnlyYes: true);
+            _UIService.YNMessageBox("error_title", "error_no_decks", "ok_button", isOnlyYes: true);
         }
         else
         {
@@ -84,16 +91,16 @@ public class MatchInfo : MonoBehaviour
     {
         ReturnButton.SetActive(false);
         SwitchButton.SetActive(false);
-        MatchMessage.text = LanguageManager.Instance.GetText("looking_for_opponent");
-        MatchButtonText.text = LanguageManager.Instance.GetText("cancel_button");
+        MatchMessage.text = _translator.GetText("looking_for_opponent");
+        MatchButtonText.text = _translator.GetText("cancel_button");
         MatchPassword.readOnly = true;
     }
     public void ShowStopMatch()/////待编辑
     {
         ReturnButton.SetActive(true);
         SwitchButton.SetActive(true);
-        MatchMessage.text = LanguageManager.Instance.GetText("deck_ready");
-        MatchButtonText.text = LanguageManager.Instance.GetText("play_button");
+        MatchMessage.text = _translator.GetText("deck_ready");
+        MatchButtonText.text = _translator.GetText("play_button");
         MatchPassword.readOnly = false;
     }
     public async void MatchButtonClick()/////点击匹配按钮的话
@@ -106,9 +113,8 @@ public class MatchInfo : MonoBehaviour
             return;
         }
         if (!_client.User.Decks.Single(x => x.Id == CurrentDeckId).IsBasicDeck())
-        {
-            var lang = LanguageManager.Instance;
-            await _UIService.YNMessageBox(lang.GetText("error_title"), lang.GetText("error_incomplete_deck"), "ok_button", isOnlyYes: true);
+        { ;
+            await _UIService.YNMessageBox("error_title", "error_incomplete_deck", "ok_button", isOnlyYes: true);
             return;
         }
         //否则尝试开始匹配(目前不关注匹配结果)
@@ -150,7 +156,7 @@ public class MatchInfo : MonoBehaviour
         SwitchButton.SetActive(false);
         MatchButton.SetActive(false);
         CloseButton.SetActive(true);
-        MatchMessage.text = LanguageManager.Instance.GetText("select_deck");
+        MatchMessage.text = _translator.GetText("select_deck");
         DeckNameBackground.gameObject.SetActive(false);
         DecksScrollbar.GetComponent<Scrollbar>().value = 1;
         DeckSwitch.GetComponent<Animator>().Play("SwitchDeckOpen");
@@ -161,7 +167,7 @@ public class MatchInfo : MonoBehaviour
         SwitchButton.SetActive(true);
         MatchButton.SetActive(true);
         CloseButton.SetActive(false);
-        MatchMessage.text = LanguageManager.Instance.GetText("deck_ready");
+        MatchMessage.text = _translator.GetText("deck_ready");
         CardsScrollbar.GetComponent<Scrollbar>().value = 1;
         DeckNameBackground.gameObject.SetActive(true);
     }

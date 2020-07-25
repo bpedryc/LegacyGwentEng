@@ -1,5 +1,7 @@
 ﻿using Assets.Script.LanguageScript;
+using Autofac;
 using Cynthia.Card;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +35,13 @@ public class GameUIControl : MonoBehaviour
     public GameObject EnemyPass;
     public Text MyShowMessage;//
     public Text EnemyShowMessage;//
+    //----------------------------------
+    private ITranslator _translator;
+
+    void Awake()
+    {
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
+    }
 
     public void SetPointInfo(GameInfomation gameInfomation)
     {
@@ -64,18 +73,17 @@ public class GameUIControl : MonoBehaviour
     }
     public void SetPassInfo(GameInfomation gameInfomation)
     {
-        var lang = LanguageManager.Instance;
         if (gameInfomation.IsMyPlayerPass)
-            MyShowMessage.text = lang.GetText("passed_text");
+            MyShowMessage.text = _translator.GetText("passed_text");
         if (gameInfomation.IsEnemyPlayerPass)
-            EnemyShowMessage.text = lang.GetText("passed_text");
+            EnemyShowMessage.text = _translator.GetText("passed_text");
         MyPass.SetActive(gameInfomation.IsMyPlayerPass);
         EnemyPass.SetActive(gameInfomation.IsEnemyPlayerPass);
     }
     public void SetMulliganInfo(GameInfomation gameInfomation)
     {
         if (gameInfomation.IsEnemyPlayerMulligan)
-            EnemyShowMessage.text = LanguageManager.Instance.GetText("opponent_replacing_cards");
+            EnemyShowMessage.text = _translator.GetText("opponent_replacing_cards");
         EnemyPass.SetActive(gameInfomation.IsEnemyPlayerMulligan);
     }
     public void SetWinCountInfo(GameInfomation gameInfomation)

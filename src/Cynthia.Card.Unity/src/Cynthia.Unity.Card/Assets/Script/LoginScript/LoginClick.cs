@@ -3,6 +3,7 @@ using Cynthia.Card.Client;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using Assets.Script.LanguageScript;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class LoginClick : MonoBehaviour
     public Toggle RecordStatus;
 
     private GwentClientService _client;
-    //private GlobalUIService _guiservice;
+    private ITranslator _translator;
 
     private void Start()
     {
@@ -54,15 +55,13 @@ public class LoginClick : MonoBehaviour
         if (_client != null)
             return;
         _client = DependencyResolver.Container.Resolve<GwentClientService>();
-        //_guiservice = DependencyResolver.Container.Resolve<GlobalUIService>();
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
     }
     public async void Login()
     {
-        var lang = LanguageManager.Instance;
-
         if (IsLogining) return;
         IsLogining = true;
-        LogMessage.text = lang.GetText("logging_in");
+        LogMessage.text = _translator.GetText("logging_in");
         try
         {
             var hub = DependencyResolver.Container.Resolve<HubConnection>();
@@ -71,11 +70,11 @@ public class LoginClick : MonoBehaviour
             await _client.Login(Username.text, Password.text);
             if (_client.User == null)
             {
-                LogMessage.text = lang.GetText("wrong_credentials");
+                LogMessage.text = _translator.GetText("wrong_credentials");
                 IsLogining = false;
                 return;
             }
-            LogMessage.text = string.Format(lang.GetText("login_welcome"), _client.User.PlayerName);
+            LogMessage.text = string.Format(_translator.GetText("login_welcome"), _client.User.PlayerName);
             SceneManager.LoadScene("Game");
             IsLogining = false;
         }

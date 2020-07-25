@@ -1,18 +1,12 @@
-﻿using System.ComponentModel;
-using UnityEngine;
+﻿using Alsein.Extensions.LifetimeAnnotations;
 using Autofac;
 using Microsoft.AspNetCore.SignalR.Client;
-using System.Reflection;
 using System.Linq;
-using Alsein.Extensions.LifetimeAnnotations;
-using Cynthia.Card.Client;
-using Autofac.Extensions.DependencyInjection;
-using Alsein.Extensions;
-using UnityEngine.UI;
-using System;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
 using System.Net;
+using System.Reflection;
+using Assets.Script.LanguageScript;
+using Cynthia.Card.Common.Models;
+using UnityEngine;
 
 public class Bootstrapper : MonoBehaviour
 {
@@ -38,6 +32,8 @@ public class Bootstrapper : MonoBehaviour
         builder.RegisterTypes(services.Where(x => x.IsDefined(typeof(SingletonAttribute))).ToArray()).PropertiesAutowired().AsSelf().SingleInstance();
         builder.RegisterTypes(services.Where(x => x.IsDefined(typeof(ScopedAttribute))).ToArray()).PropertiesAutowired().AsSelf().InstancePerLifetimeScope();
         builder.RegisterTypes(services.Where(x => x.IsDefined(typeof(TransientAttribute))).ToArray()).PropertiesAutowired().AsSelf().InstancePerDependency();
+
+        builder.RegisterType<LanguageManager>().As<ITranslator>().SingleInstance();
         return builder;
     }
 }

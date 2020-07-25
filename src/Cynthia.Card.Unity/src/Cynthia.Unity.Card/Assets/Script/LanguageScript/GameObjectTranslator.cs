@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac;
+using Cynthia.Card.Common.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Script.LanguageScript
 {
-    public class Translator : MonoBehaviour
+    public class GameObjectTranslator : MonoBehaviour
     {
+        private ITranslator _translationManager;
         public List<Translatable> ObjectsToTranslate;
         private void Start()
         {
+            _translationManager = DependencyResolver.Container.Resolve<ITranslator>();
             TranslateAll();
         }
         public void TranslateAll()
@@ -20,7 +24,7 @@ namespace Assets.Script.LanguageScript
                 try
                 {
                     var textContent = entry.TextObject.GetComponent<Text>();
-                    textContent.text = LanguageManager.Instance.GetText(textId);
+                    textContent.text = _translationManager.GetText(textId);
                 }
                 catch (NullReferenceException exception)
                 {

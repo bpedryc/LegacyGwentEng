@@ -1,23 +1,29 @@
-﻿using Assets.Script.LanguageScript;
+﻿using Cynthia.Card.Common.Models;
 using System;
+using Autofac;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ChoseValue : MonoBehaviour
+public class ChooseValue : MonoBehaviour
 {
+    private ITranslator _translator;
+
     public string[] ChoseList;
     private int _index = 0;
     public int Index
     {
-        get
-        {
-            return _index;
-        }
+        get => _index;
         set
         {
             _index = value;
-            ShowText.text = LanguageManager.Instance.GetText(ChoseList[Index]);
+
+            if (_translator == null)
+            {
+                this.Awake();
+            }
+
+            ShowText.text = _translator.GetText(ChoseList[Index]);
             onValueChanged.Invoke(Index);
         }
     }
@@ -27,10 +33,13 @@ public class ChoseValue : MonoBehaviour
     public ChoseValueEvent onValueChanged = new ChoseValueEvent();
 
     public Text ShowText;
-
+    private void Awake()
+    {
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
+    }
     private void Start()
     {
-        ShowText.text = LanguageManager.Instance.GetText(ChoseList[Index]);
+        ShowText.text = _translator.GetText(ChoseList[Index]);
     }
 
     public void LeftButtonClick()
