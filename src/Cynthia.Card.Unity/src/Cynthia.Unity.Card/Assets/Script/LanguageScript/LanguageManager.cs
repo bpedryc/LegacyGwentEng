@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using Alsein.Extensions.LifetimeAnnotations;
 using UnityEngine;
 
 namespace Assets.Script.LanguageScript
@@ -11,31 +10,47 @@ namespace Assets.Script.LanguageScript
     class LanguageManager : ITranslator
     {
         private Dictionary<string, string> Texts = new Dictionary<string, string>();
-
-        private static readonly List<GameLocale> Locales = new List<GameLocale>(){
-            new GameLocale("English", "en"),
-            new GameLocale("Chinese", "zh")
-        };
+        private List<GameLocale> _locales;
         private GameLocale _gameLanguage;
 
         public int GameLanguage
         {
-            get => Locales.IndexOf(_gameLanguage);
+            get => _locales.IndexOf(_gameLanguage);
             set
             {
-                if (value >= Locales.Count || value < 0)
+                if (value >= _locales.Count || value < 0)
                 {
                     value = 0;
                 }
-                _gameLanguage = Locales[value];
+                _gameLanguage = _locales[value];
                 LoadTexts();
             }
         }
 
         public LanguageManager()
         {
+            _locales = LoadLocales();
             GameLanguage = PlayerPrefs.GetInt("language", 0);
         }
+
+        private List<GameLocale> LoadLocales()
+        {
+            var output = new List<GameLocale>();
+            var localeInfo = Resources.Load<TextAsset>("Locales/info");
+            var document = new XmlDocument();
+            document.Load(new StringReader(localeInfo.text));
+            if (document.DocumentElement == null)
+                return output;
+
+            var nodes = document.DocumentElement.ChildNodes;
+            foreach (XmlNode node in nodes)
+            {
+                output.Add(new GameLocale { Filename = node.InnerText });
+            }
+
+            return output;
+        }
+
         private void LoadTexts()
         {
             Texts.Clear();

@@ -110,9 +110,11 @@
 	<entry id="my_deck_text">Moja talia (w stanie początkowym)</entry>
 	<entry id="redraw_info">Wybierz karty do wymiany [{0}/{1}]</entry>
 	<entry id="search_placeholder">Szukaj</entry>
-  <entry id="opponent_disconnected_title">Przeciwnik opuścił grę</entry>
-  <entry id="opponent_disconnected_text">Rozgrywka zakończyła się twoim zwycięstwem!</entry>
-  <entry id="choose_cards_title">Wybierz karty</entry>
+	<entry id="opponent_disconnected_title">Przeciwnik opuścił grę</entry>
+	<entry id="opponent_disconnected_text">Rozgrywka zakończyła się twoim zwycięstwem!</entry>
+	<entry id="choose_cards_title">Wybierz karty</entry>
+	<entry id="language_title">JĘZYK:</entry>
+	<entry id="language_text">POLSKI</entry>
 
 	<entry id="card_12004_name">Geralt z Rivii</entry>
 	<entry id="card_12004_info">Brak umiejętności.</entry>

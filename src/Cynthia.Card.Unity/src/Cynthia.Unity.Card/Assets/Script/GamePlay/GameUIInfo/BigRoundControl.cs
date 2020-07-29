@@ -1,5 +1,4 @@
-﻿using Assets.Script.LanguageScript;
-using Autofac;
+﻿using Autofac;
 using Cynthia.Card;
 using Cynthia.Card.Common.Models;
 using UnityEngine;
@@ -22,9 +21,10 @@ public class BigRoundControl : MonoBehaviour
 
     private ITranslator _translator;
 
-    private void Start()
+    private void Awake()
     {
         _translator = DependencyResolver.Container.Resolve<ITranslator>();
+        this.gameObject.SetActive(false);
     }
 
     public void ShowPoint(BigRoundInfomation data)

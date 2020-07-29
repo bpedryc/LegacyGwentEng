@@ -25,14 +25,6 @@ public class LoginClick : MonoBehaviour
 
     private void Start()
     {
-        void IsOnPreservation(bool isOn)
-        {
-            if (isOn)
-            {
-                PlayerPrefs.SetString("Username", Username.text);
-                PlayerPrefs.SetString("Password", Password.text);
-            }
-        }
         RecordStatus.isOn = PlayerPrefs.GetInt("RecordBox", 0) != 0;
         if (RecordStatus.isOn)
         {
@@ -99,5 +91,13 @@ public class LoginClick : MonoBehaviour
         Username.text = "";
         Password.text = "";
         LogMessage.text = "";
+    }
+    void IsOnPreservation(bool isOn)
+    {
+        if (isOn)
+        {
+            PlayerPrefs.SetString("Username", Username.text);
+            PlayerPrefs.SetString("Password", Password.text);
+        }
     }
 }

@@ -61,6 +61,7 @@ public class GameResultControl : MonoBehaviour
     private void Awake()
     {
         _translator = DependencyResolver.Container.Resolve<ITranslator>();
+        this.gameObject.SetActive(false);
     }
 
     public void ShowGameResult(GameResultInfomation gameResult)

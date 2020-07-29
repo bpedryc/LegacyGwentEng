@@ -21,14 +21,14 @@ public class GameEntrance : MonoBehaviour
     public GameObjectTranslator GameObjectTranslator;
 
     private GwentClientService _gwentClientService;
-    private ITranslator _translationManager;
+    private ITranslator _translator;
 
     private void Start()
     {
         _gwentClientService = DependencyResolver.Container.Resolve<GwentClientService>();
 
-        _translationManager = DependencyResolver.Container.Resolve<ITranslator>();
-        GwentMap.Translator = _translationManager;
+        _translator = DependencyResolver.Container.Resolve<ITranslator>();
+        GwentMap.Translator = _translator;
 
         Debug.Log(_gwentClientService);
         Debug.Log(_gwentClientService.HubConnection.State);
@@ -46,13 +46,13 @@ public class GameEntrance : MonoBehaviour
         try
         {
             var version = new Version(await _gwentClientService.GetLatestVersion());
-            LatestVersionText.text = string.Format(_translationManager.GetText("latest_version_info"), version);
+            LatestVersionText.text = string.Format(_translator.GetText("latest_version_info"), version);
         }
         catch
         {
             if (LatestVersionText != null)
             {
-                LatestVersionText.text = _translationManager.GetText("latest_version_error");
+                LatestVersionText.text = _translator.GetText("latest_version_error");
             }
         }
         try
@@ -63,7 +63,7 @@ public class GameEntrance : MonoBehaviour
         {
             if (NotesText != null)
             {
-                NotesText.text = _translationManager.GetText("news_error");
+                NotesText.text = _translator.GetText("news_error");
                 NotesText.alignment = TextAnchor.UpperLeft;
             }
         }
@@ -85,22 +85,22 @@ public class GameEntrance : MonoBehaviour
         SetCloseSound(PlayerPrefs.GetInt("isCloseSound", 1));
         SetMusic(PlayerPrefs.GetInt("musicVolum", 5));
         SetEffect(PlayerPrefs.GetInt("effectVolum", 5));
-        NowVersionText.text = string.Format(_translationManager.GetText("current_version_info"),
+        NowVersionText.text = string.Format(_translator.GetText("current_version_info"),
             ClientGlobalInfo.Version);
     }
 
     private void SetLanguage(int languageIndex)
     {
-        _translationManager.GameLanguage = languageIndex;
-        PlayerPrefs.SetInt("language", _translationManager.GameLanguage);
+        _translator.GameLanguage = languageIndex;
+        PlayerPrefs.SetInt("language", _translator.GameLanguage);
     }
 
     public void NextLanguage()
     {
-        SetLanguage(_translationManager.GameLanguage + 1);
+        SetLanguage(_translator.GameLanguage + 1);
         GameObjectTranslator.TranslateAll();
 
-        NowVersionText.text = string.Format(_translationManager.GetText("current_version_info"), ClientGlobalInfo.Version);
+        NowVersionText.text = string.Format(_translator.GetText("current_version_info"), ClientGlobalInfo.Version);
         LoadServerMessage();
 
     }

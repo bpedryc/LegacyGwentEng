@@ -52,10 +52,12 @@ public class GameCardShowControl : MonoBehaviour
     private ITubeOutlet receiver;
 
     private ITranslator _translator;
-    private void Awake() => (sender, receiver) = Tube.CreateSimplex();
-    private void Start()
+
+    private void Awake()
     {
+        (sender, receiver) = Tube.CreateSimplex();
         _translator = DependencyResolver.Container.Resolve<ITranslator>();
+        this.gameObject.SetActive(false);
     }
     private bool IsAutoPlay { get => DependencyResolver.Container.Resolve<GwentClientService>().IsAutoPlay; }
     //------------------------------------------------------------------------------------------
